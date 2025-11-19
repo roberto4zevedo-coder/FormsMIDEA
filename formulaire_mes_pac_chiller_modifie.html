@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MES PAC/Chiller MIDEA 2025</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; background: #ffffff; color: #000000; line-height: 1.6; padding: 20px; }
+        .header { background: #000000; color: #ffffff; padding: 1.5rem 2rem; margin: -20px -20px 20px -20px; }
+        .header h1 { font-size: 1.8rem; font-weight: 600; }
+        .header p { font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        .form-header { background: #f5f5f5; padding: 2rem; border-left: 4px solid #000000; margin-bottom: 2rem; }
+        .form-header h2 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .instructions { background: #ffffff; border: 1px solid #e0e0e0; padding: 1rem; margin-top: 1rem; border-radius: 4px; font-size: 0.9rem; }
+        .form-section { background: #fafafa; border: 1px solid #e0e0e0; padding: 2rem; margin-bottom: 2rem; border-radius: 4px; }
+        .form-section h3 { font-size: 1.3rem; margin-bottom: 1.5rem; padding-bottom: 0.8rem; border-bottom: 2px solid #000000; }
+        .form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem; }
+        .form-group { margin-bottom: 1.5rem; }
+        label { display: block; font-weight: 500; margin-bottom: 0.5rem; font-size: 0.95rem; }
+        label.required::after { content: " *"; color: #000000; font-weight: bold; }
+        input[type="text"], input[type="email"], input[type="tel"], input[type="date"], input[type="number"], textarea, select { width: 100%; padding: 0.75rem; border: 2px solid #d0d0d0; border-radius: 4px; font-size: 0.95rem; transition: border-color 0.3s ease; background: #ffffff; }
+        input:focus, textarea:focus, select:focus { outline: none; border-color: #000000; }
+        textarea { min-height: 80px; resize: vertical; font-family: inherit; }
+        .radio-group { display: flex; flex-wrap: wrap; gap: 1rem; }
+        .radio-item { display: flex; align-items: center; gap: 0.5rem; }
+        input[type="radio"] { width: 18px; height: 18px; cursor: pointer; accent-color: #000000; }
+        .button-group { display: flex; gap: 1rem; justify-content: center; margin-top: 3rem; padding-top: 2rem; border-top: 2px solid #e0e0e0; }
+        button { padding: 1rem 2.5rem; font-size: 1rem; font-weight: 600; border: 2px solid #000000; border-radius: 4px; cursor: pointer; transition: all 0.3s ease; }
+        .btn-primary { background: #000000; color: #ffffff; }
+        .btn-primary:hover { background: #333333; transform: translateY(-2px); }
+        .success-message { background: #000000; color: #ffffff; padding: 2rem; border-radius: 4px; text-align: center; margin-top: 2rem; display: none; }
+        .success-message.show { display: block; }
+        @media (max-width: 768px) { .container { padding: 1rem; } .form-row { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>MIDEA</h1>
+        <p>Formulaires de demande 2025</p>
+    </div>
+
+    <div class="container">
+        <div class="form-header">
+            <h2>Mise En Service PAC/Chiller MIDEA 2025</h2>
+            <div class="instructions">
+                <strong>OBLIGATOIRE :</strong> Installation terminée + Circuit hydraulique purgé<br>
+                <strong>Pour toute question relative :</strong> hotline@mideahvac.fr
+            </div>
+        </div>
+
+        <form id="mesPacForm">
+            <div class="form-section">
+                <h3>Information client MIDEA </h3>
+                <div class="form-row">
+                    <div class="form-group"><label class="required">Société</label><input type="text" name="societeDistributeur" required></div>
+                    <div class="form-group">
+                        <label>N° client Midea</label>
+                        <input type="text" name="numClientFrigicoll">
+                    </div>
+                    <div class="form-group"><label class="required">Téléphone</label><input type="tel" name="telephoneDistributeur" required></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label class="required">Contact</label><input type="text" name="contactDistributeur" required></div>
+                    <div class="form-group"><label class="required">Email</label><input type="email" name="emailDistributeur" required></div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Information Installateur</h3>
+                <div class="form-row">
+                    <div class="form-group"><label class="required">Société</label><input type="text" name="societeInstallateur" required></div>
+                    <div class="form-group"><label class="required">N° Attestation de capacité</label><input type="text" name="numADC" required></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label class="required">Contact</label><input type="text" name="contactInstallateur" required></div>
+                    <div class="form-group"><label class="required">Téléphone</label><input type="tel" name="telephoneInstallateur" required></div>
+                </div>
+                <div class="form-group"><label class="required">Adresse société</label><textarea name="adresseSociete" rows="2" required></textarea></div>
+                <div class="form-group"><label class="required">Email</label><input type="email" name="emailInstallateur" required></div>
+            </div>
+
+            <div class="form-section">
+                <h3>Information Sous-Traitant (si applicable)</h3>
+                <div class="form-row">
+                    <div class="form-group"><label>Société</label><input type="text" name="societeSousTraitant"></div>
+                    <div class="form-group"><label>N° ADC</label><input type="text" name="numADC_ST"></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label>Contact</label><input type="text" name="contactST"></div>
+                    <div class="form-group"><label>Téléphone</label><input type="tel" name="telephoneST"></div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Information du site</h3>
+                <div class="form-row">
+                    <div class="form-group"><label class="required">Nom du site</label><input type="text" name="nomSite" required></div>
+                    <div class="form-group"><label class="required">Contact sur site</label><input type="text" name="contactSite" required></div>
+                </div>
+                <div class="form-group"><label class="required">Adresse du site</label><textarea name="adresseSite" rows="2" required></textarea></div>
+                <div class="form-group"><label class="required">Téléphone sur site</label><input type="tel" name="telephoneSite" required></div>
+            </div>
+
+            <div class="form-section">
+                <h3>Information installation</h3>
+                <div class="form-group">
+                    <label class="required">Type</label>
+                    <select name="type" required>
+                        <option value="">-- Sélectionner --</option>
+                        <option value="PAC Air/Eau">PAC Air/Eau</option>
+                        <option value="Chiller Air/Eau">Chiller Air/Eau</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="required">Configuration</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="monoBloc" name="configuration" value="Mono-bloc" required>
+                            <label for="monoBloc">Mono-bloc</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="biBloc" name="configuration" value="Bi-bloc">
+                            <label for="biBloc">Bi-bloc</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="required">Gaz</label>
+                        <select name="gaz" required>
+                            <option value="">-- Sélectionner --</option>
+                            <option value="R410A">R410A</option>
+                            <option value="R32">R32</option>
+                            <option value="R407C">R290</option>
+                        </select>
+                    </div>
+                    <div class="form-group"><label class="required">Référence groupe</label><input type="text" name="referenceGroupe" required></div>
+                </div>
+                <div class="form-group" id="moduleHydrauliqueGroup" style="display: none;">
+                    <label>Référence module hydraulique</label>
+                    <input type="text" name="referenceModule" id="referenceModule">
+                </div>
+                <div class="form-group">
+                    <label class="required">Type émetteur</label>
+                    <select name="typeEmetteur" required>
+                        <option value="">-- Sélectionner --</option>
+                        <option value="Plancher chauffant">Plancher chauffant</option>
+                        <option value="Radiateurs">Radiateurs</option>
+                        <option value="Ventilo-convecteurs">Ventilo-convecteurs</option>
+                        <option value="Mixte">Mixte</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Configuration hydraulique</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Ballon ECS</label>
+                        <div class="radio-group">
+                            <div class="radio-item"><input type="radio" name="ballonECS" value="Oui"><label>Oui</label></div>
+                            <div class="radio-item"><input type="radio" name="ballonECS" value="Non"><label>Non</label></div>
+                        </div>
+                    </div>
+                    <div class="form-group"><label>Nombre de zones</label><input type="number" name="nombreZones" min="1"></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Cascade</label>
+                        <div class="radio-group">
+                            <div class="radio-item"><input type="radio" name="cascade" value="Oui"><label>Oui</label></div>
+                            <div class="radio-item"><input type="radio" name="cascade" value="Non"><label>Non</label></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Ballon de découplage</label>
+                        <div class="radio-group">
+                            <div class="radio-item"><input type="radio" name="ballonDecoupage" value="Oui"><label>Oui</label></div>
+                            <div class="radio-item"><input type="radio" name="ballonDecoupage" value="Non"><label>Non</label></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Pot à boue</label>
+                        <div class="radio-group">
+                            <div class="radio-item"><input type="radio" name="potBoue" value="Oui"><label>Oui</label></div>
+                            <div class="radio-item"><input type="radio" name="potBoue" value="Non"><label>Non</label></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Purgeur</label>
+                        <div class="radio-group">
+                            <div class="radio-item"><input type="radio" name="purgeur" value="Oui"><label>Oui</label></div>
+                            <div class="radio-item"><input type="radio" name="purgeur" value="Non"><label>Non</label></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Disconnecteur</label>
+                        <div class="radio-group">
+                            <div class="radio-item"><input type="radio" name="disconnecteur" value="Oui"><label>Oui</label></div>
+                            <div class="radio-item"><input type="radio" name="disconnecteur" value="Non"><label>Non</label></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Vase expansion</label>
+                        <div class="radio-group">
+                            <div class="radio-item"><input type="radio" name="vaseExpansion" value="Oui"><label>Oui</label></div>
+                            <div class="radio-item"><input type="radio" name="vaseExpansion" value="Non"><label>Non</label></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Filtre à tamis</label>
+                    <div class="radio-group">
+                        <div class="radio-item"><input type="radio" name="filtreTamis" value="Oui"><label>Oui</label></div>
+                        <div class="radio-item"><input type="radio" name="filtreTamis" value="Non"><label>Non</label></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Validation</h3>
+                <div class="form-row">
+                    <div class="form-group"><label class="required">Nom installateur</label><input type="text" name="nomInstallateur" required></div>
+                    <div class="form-group"><label class="required">Date de la demande</label><input type="date" name="dateDemande" required></div>
+                </div>
+                <div class="form-group"><label class="required">Date souhaitée MES</label><input type="date" name="dateSouhaiteeMES" required></div>
+            </div>
+
+            <div class="button-group">
+                <button type="submit" class="btn-primary">Envoyer la demande de MES</button>
+            </div>
+        </form>
+
+        <div id="successMessage" class="success-message">
+            <h3>✓ Demande envoyée avec succès !</h3>
+            <p>Votre demande de MES PAC/Chiller a été transmise à hotline@mideahvac.fr</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        const EMAILJS_SERVICE_ID = 'service_9bs4sgm';
+        const EMAILJS_TEMPLATE_ID = 'template_uz4dmm2';
+        const EMAILJS_PUBLIC_KEY = 'ZmDnWxEC9wEEYP_Mp';
+        emailjs.init(EMAILJS_PUBLIC_KEY);
+        
+
+        
+      // Gestion Bi-bloc selon le type sélectionné
+const typeSelect = document.querySelector('select[name="type"]');
+const biBloc = document.getElementById('biBloc');
+const monoBloc = document.getElementById('monoBloc');
+const moduleGroup = document.getElementById('moduleHydrauliqueGroup');
+
+typeSelect.addEventListener('change', function() {
+    if (this.value === 'Chiller Air/Eau') {
+        // Désactiver Bi-bloc pour Chiller
+        biBloc.disabled = true;
+        biBloc.parentElement.style.opacity = '0.5';
+        biBloc.parentElement.style.cursor = 'not-allowed';
+        
+        // Forcer Mono-bloc
+        monoBloc.checked = true;
+        moduleGroup.style.display = 'none';
+    } else {
+        // Réactiver Bi-bloc pour PAC
+        biBloc.disabled = false;
+        biBloc.parentElement.style.opacity = '1';
+        biBloc.parentElement.style.cursor = 'pointer';
+    }
+});
+        
+        biBloc.addEventListener('change', function() {
+            if (this.checked) {
+                moduleGroup.style.display = 'block';
+            }
+        });
+        
+        document.getElementById('mesPacForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const submitBtn = this.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Envoi en cours...';
+            
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => { data[key] = value; });
+            data.form_type = 'MES_PAC';
+            data.date_soumission = new Date().toLocaleString('fr-FR');
+            
+            try {
+                await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, data);
+                this.style.display = 'none';
+                document.getElementById('successMessage').classList.add('show');
+            } catch (error) {
+                alert('Erreur lors de l\'envoi: ' + error.text);
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Envoyer la demande de MES';
+            }
+        });
+    </script>
+</body>
+</html>

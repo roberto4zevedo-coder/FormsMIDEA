@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MES VRF (DRV) MIDEA 2025</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; background: #ffffff; color: #000000; line-height: 1.6; padding: 20px; }
+        .header { background: #000000; color: #ffffff; padding: 1.5rem 2rem; margin: -20px -20px 20px -20px; }
+        .header h1 { font-size: 1.8rem; font-weight: 600; }
+        .header p { font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        .form-header { background: #f5f5f5; padding: 2rem; border-left: 4px solid #000000; margin-bottom: 2rem; }
+        .form-header h2 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .instructions { background: #ffffff; border: 1px solid #e0e0e0; padding: 1rem; margin-top: 1rem; border-radius: 4px; font-size: 0.9rem; }
+        .form-section { background: #fafafa; border: 1px solid #e0e0e0; padding: 2rem; margin-bottom: 2rem; border-radius: 4px; }
+        .form-section h3 { font-size: 1.3rem; margin-bottom: 1.5rem; padding-bottom: 0.8rem; border-bottom: 2px solid #000000; }
+        .form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem; }
+        .form-group { margin-bottom: 1.5rem; }
+        label { display: block; font-weight: 500; margin-bottom: 0.5rem; font-size: 0.95rem; }
+        label.required::after { content: " *"; color: #000000; font-weight: bold; }
+        input[type="text"], input[type="email"], input[type="tel"], input[type="date"], textarea, select { width: 100%; padding: 0.75rem; border: 2px solid #d0d0d0; border-radius: 4px; font-size: 0.95rem; transition: border-color 0.3s ease; background: #ffffff; }
+        input:focus, textarea:focus, select:focus { outline: none; border-color: #000000; }
+        textarea { min-height: 80px; resize: vertical; font-family: inherit; }
+        .checkbox-group { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 1rem; padding: 0.8rem; background: #ffffff; border-radius: 4px; }
+        input[type="checkbox"] { width: 20px; height: 20px; cursor: pointer; accent-color: #000000; margin-top: 2px; flex-shrink: 0; }
+        .checkbox-group label { margin-bottom: 0; cursor: pointer; }
+        
+        /* Validation slide-in */
+        .validation-warning {
+            background: #dc3545;
+            color: #ffffff;
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin-top: 1.5rem;
+            display: none;
+            animation: slideDown 0.5s ease-out;
+        }
+        .validation-warning.show {
+            display: block;
+        }
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .validation-warning h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+        }
+        .validation-warning p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        /* Footer warnings */
+        .footer-warnings {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border-radius: 4px;
+        }
+        .footer-warnings h4 {
+            color: #856404;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        .footer-warnings p {
+            color: #856404;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+        }
+        
+        .button-group { display: flex; gap: 1rem; justify-content: center; margin-top: 3rem; padding-top: 2rem; border-top: 2px solid #e0e0e0; }
+        button { padding: 1rem 2.5rem; font-size: 1rem; font-weight: 600; border: 2px solid #000000; border-radius: 4px; cursor: pointer; transition: all 0.3s ease; }
+        .btn-primary { background: #000000; color: #ffffff; }
+        .btn-primary:hover:not(:disabled) { background: #333333; transform: translateY(-2px); }
+        .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+        .success-message { background: #000000; color: #ffffff; padding: 2rem; border-radius: 4px; text-align: center; margin-top: 2rem; display: none; }
+        .success-message.show { display: block; }
+        @media (max-width: 768px) { .container { padding: 1rem; } .form-row { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>MIDEA</h1>
+        <p>Formulaires de demande 2025</p>
+    </div>
+
+    <div class="container">
+        <div class="form-header">
+            <h2>Mise En Service VRF (DRV) MIDEA 2025</h2>
+            <div class="instructions">
+                <strong>OBLIGATOIRE :</strong> Pré-visite effectuée + Télécommandes programmées + Installation terminée<br>
+                <p style="margin-top: 0.5rem;"><strong>Pour toute information complémentaire, merci de contacter</strong> hotline@mideahvac.fr</p>
+            </div>
+        </div>
+
+        <form id="mesVrfForm">
+            <div class="form-section">
+                <h3>Information client MIDEA</h3>
+                <div class="form-row">
+                    <div class="form-group"><label class="required">Société</label><input type="text" name="societeDistributeur" required></div>
+                    <div class="form-group"><label class="required">Téléphone</label><input type="tel" name="telephoneDistributeur" required></div>
+                    <div class="form-group">
+                        <label>N° client Midea</label><input type="text" name="numClientFrigicoll">
+                </div>
+                 </div>
+                <div class="form-row">
+                    <div class="form-group"><label class="required">Contact</label><input type="text" name="contactDistributeur" required></div>
+                    <div class="form-group"><label>Nom du dossier</label><input type="text" name="nomDossier"></div>
+                </div>
+                <div class="form-group"><label class="required">Email</label><input type="email" name="emailDistributeur" required></div>
+            </div>
+
+            <div class="form-section">
+            
+                <h3>Information Installateur</h3>
+                <div class="form-row">
+                    <div class="form-group"><label class="required">Société</label><input type="text" name="societeInstallateur" required></div>
+                    <div class="form-group"><label class="required">N° Attestation de capacité</label><input type="text" name="numADC" required></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label class="required">Contact</label><input type="text" name="contactInstallateur" required></div>
+                    <div class="form-group"><label class="required">Téléphone</label><input type="tel" name="telephoneInstallateur" required></div>
+                </div>
+                <div class="form-group"><label class="required">Adresse société</label><textarea name="adresseSociete" rows="2" required></textarea></div>
+                <div class="form-group"><label class="required">Email</label><input type="email" name="emailInstallateur" required></div>
+            </div>
+
+            <div class="form-section">
+                <h3>Information Sous-Traitant (si applicable)</h3>
+                <div class="form-row">
+                    <div class="form-group"><label>Société</label><input type="text" name="societeSousTraitant"></div>
+                    <div class="form-group"><label>N° ADC</label><input type="text" name="numADC_ST"></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label>Contact</label><input type="text" name="contactST"></div>
+                    <div class="form-group"><label>Téléphone</label><input type="tel" name="telephoneST"></div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Information du site</h3>
+                <div class="form-row">
+                    <div class="form-group"><label class="required">Nom du site</label><input type="text" name="nomSite" required></div>
+                    <div class="form-group"><label class="required">Contact sur site</label><input type="text" name="contactSite" required></div>
+                </div>
+                <div class="form-group"><label class="required">Adresse du site</label><textarea name="adresseSite" rows="2" required></textarea></div>
+                <div class="form-group"><label class="required">Téléphone sur site</label><input type="tel" name="telephoneSite" required></div>
+            </div>
+
+            <div class="form-section">
+                <h3>Information produit</h3>
+                <div class="form-row">
+                    <div class="form-group"><label class="required">Référence groupe extérieur</label><input type="text" name="referenceGroupeExt" required></div>
+                    <div class="form-group"><label class="required">N° de série groupe extérieur</label><input type="text" name="numSerieGroupeExt" required></div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Conditions préalables pour MES (cocher TOUS les points réalisés)</h3>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="c1" name="controle1" value="OK" class="checklist-item">
+                    <label for="c1">Les unités intérieures et extérieures sont installées conformément à la notice d'installation</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="c2" name="controle2" value="OK" class="checklist-item">
+                    <label for="c2">L'alimentation électrique définitive est présente sur le site</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="c3" name="controle3" value="OK" class="checklist-item">
+                    <label for="c3">Les protections et sections de câbles sont conformes aux normes électriques actuelles</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="c4" name="controle4" value="OK" class="checklist-item">
+                    <label for="c4">L'alimentation du ou des groupes et des unités intérieures est indépendante les unes des autres</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="c5" name="controle5" value="OK" class="checklist-item">
+                    <label for="c5">Le bus de communication 3x0,75 blindé est connecté d'unité en unité sans boîte de dérivation</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="c6" name="controle6" value="OK" class="checklist-item">
+                    <label for="c6">La mise sous tension des groupes au moins 24h avant la MES</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="c7" name="controle7" value="OK" class="checklist-item">
+                    <label for="c7">L'installation frigorifique est conforme aux préconisations constructeur (exemple: Y à plat)</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="c8" name="controle8" value="OK" class="checklist-item">
+                    <label for="c8">Les brasures réalisées sous balayage d'azote sec</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="c9" name="controle9" value="OK" class="checklist-item">
+                    <label for="c9">Les vannes de l'installation doivent être maintenues fermées</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="c10" name="controle10" value="OK" class="checklist-item">
+                    <label for="c10">Le test d'étanchéité effectué suivant la norme EN378 (responsabilité de l'installateur) (38 Bars)</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="c11" name="controle11" value="OK" class="checklist-item">
+                    <label for="c11">Le tirage au vide maintenu pendant 12h à < 0,4torr (responsabilité de l'installateur)</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="c12" name="controle12" value="OK" class="checklist-item">
+                    <label for="c12">Le fluide nécessaire pour l'appoint de charge est fourni par l'installateur (tarification sur devis)</label>
+                </div>
+                
+                <!-- Warning slide-in -->
+                <div id="validationWarning" class="validation-warning">
+                    <h4>⚠️ ENGAGEMENT DE CONFORMITÉ</h4>
+                    <p>En cochant tous les points ci-dessus, vous certifiez que l'installation est conforme et prête pour la mise en service.</p>
+                    <p style="margin-top: 0.8rem; font-weight: bold;">Toute intervention annulée moins de 24h avant l'intervention ou impossible, une pénalité de 250€HT sera facturée en compensation (exemples : installateur absent, installation non finalisée, défaut d'alimentation électrique, …)</p>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Validation</h3>
+                <div class="form-row">
+                    <div class="form-group"><label class="required">Nom installateur</label><input type="text" name="nomInstallateur" required></div>
+                    <div class="form-group"><label class="required">Date de la demande</label><input type="date" name="dateDemande" required></div>
+                </div>
+                <div class="form-group"><label class="required">Date souhaitée MES</label><input type="date" name="dateSouhaiteeMES" required></div>
+            </div>
+
+            <div class="button-group">
+                <button type="submit" class="btn-primary" id="submitBtn" disabled>Envoyer la demande de MES</button>
+            </div>
+        </form>
+
+        <div id="successMessage" class="success-message">
+            <h3>✓ Demande envoyée avec succès !</h3>
+            <p>Votre demande de MES VRF a été transmise à hotline@mideahvac.fr</p>
+        </div>
+
+        <!-- Footer warnings -->
+        <div class="footer-warnings">
+            <h4>⚠️ INFORMATIONS IMPORTANTES</h4>
+            <p><strong>Accès et sécurité :</strong> Le total accès et la mise en sécurité du lieu de l'intervention par l'installateur sont obligatoires (échafaudage, balisage, barrière de sécurité, accès au matériel, ...)</p>
+            <p><strong>Pénalités :</strong> Toute intervention annulée moins de 24h avant l'intervention ou impossible, une pénalité de 250€HT sera facturée en compensation (exemples : installateur absent, installation non finalisée, défaut d'alimentation électrique, ...)</p>
+            <p><strong>Documents requis :</strong> Le présent document doit être remis en même temps que le synoptique de l'installation stipulant les longueurs réelles du site afin de permettre le calcul de l'appoint de charge en fluide frigorigène nécessaire.</p>
+            <p><strong>Délais :</strong> Toute demande incomplète ne sera pas traitée et repoussera d'autant le délai de 10 jours.</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        const EMAILJS_SERVICE_ID = 'service_f3sml7h';
+        const EMAILJS_TEMPLATE_ID = 'template_79irmqe';
+        const EMAILJS_PUBLIC_KEY = '98TIlq6iGPq96S4ff';
+        emailjs.init(EMAILJS_PUBLIC_KEY);
+        
+        // Gestion de la validation checklist
+        const checkboxes = document.querySelectorAll('.checklist-item');
+        const validationWarning = document.getElementById('validationWarning');
+        const submitBtn = document.getElementById('submitBtn');
+        
+        function checkAllBoxes() {
+            const allChecked = Array.from(checkboxes).every(cb => cb.checked);
+            
+            if (allChecked) {
+                validationWarning.classList.add('show');
+                submitBtn.disabled = false;
+            } else {
+                validationWarning.classList.remove('show');
+                submitBtn.disabled = true;
+            }
+        }
+        
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', checkAllBoxes);
+        });
+        
+        // Soumission du formulaire
+        document.getElementById('mesVrfForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Envoi en cours...';
+            
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => { data[key] = value; });
+            data.form_type = 'MES_VRF';
+            data.date_soumission = new Date().toLocaleString('fr-FR');
+            
+            try {
+                await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, data);
+                this.style.display = 'none';
+                document.getElementById('successMessage').classList.add('show');
+            } catch (error) {
+                alert('Erreur lors de l\'envoi: ' + error.text);
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Envoyer la demande de MES';
+            }
+        });
+    </script>
+</body>
+</html>

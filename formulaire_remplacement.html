@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demande de Remplacement Produit MIDEA 2025</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; background: #ffffff; color: #000000; line-height: 1.6; padding: 20px; }
+        .header { background: #000000; color: #ffffff; padding: 1.5rem 2rem; margin: -20px -20px 20px -20px; }
+        .header h1 { font-size: 1.8rem; font-weight: 600; }
+        .header p { font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        .form-header { background: #f5f5f5; padding: 2rem; border-left: 4px solid #000000; margin-bottom: 2rem; }
+        .form-header h2 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .instructions { background: #ffffff; border: 1px solid #e0e0e0; padding: 1rem; margin-top: 1rem; border-radius: 4px; font-size: 0.9rem; }
+        .form-section { background: #fafafa; border: 1px solid #e0e0e0; padding: 2rem; margin-bottom: 2rem; border-radius: 4px; }
+        .form-section h3 { font-size: 1.3rem; margin-bottom: 1.5rem; padding-bottom: 0.8rem; border-bottom: 2px solid #000000; }
+        .form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem; }
+        .form-group { margin-bottom: 1.5rem; }
+        label { display: block; font-weight: 500; margin-bottom: 0.5rem; font-size: 0.95rem; }
+        label.required::after { content: " *"; color: #000000; font-weight: bold; }
+        input[type="text"], input[type="email"], input[type="tel"], input[type="date"], textarea, select { width: 100%; padding: 0.75rem; border: 2px solid #d0d0d0; border-radius: 4px; font-size: 0.95rem; transition: border-color 0.3s ease; background: #ffffff; }
+        input:focus, textarea:focus, select:focus { outline: none; border-color: #000000; }
+        textarea { min-height: 100px; resize: vertical; font-family: inherit; }
+        .radio-group { display: flex; flex-wrap: wrap; gap: 1rem; }
+        .radio-item { display: flex; align-items: center; gap: 0.5rem; }
+        input[type="radio"] { width: 18px; height: 18px; cursor: pointer; accent-color: #000000; }
+        .button-group { display: flex; gap: 1rem; justify-content: center; margin-top: 3rem; padding-top: 2rem; border-top: 2px solid #e0e0e0; }
+        button { padding: 1rem 2.5rem; font-size: 1rem; font-weight: 600; border: 2px solid #000000; border-radius: 4px; cursor: pointer; transition: all 0.3s ease; }
+        .btn-primary { background: #000000; color: #ffffff; }
+        .btn-primary:hover { background: #333333; transform: translateY(-2px); }
+        .success-message { background: #000000; color: #ffffff; padding: 2rem; border-radius: 4px; text-align: center; margin-top: 2rem; display: none; }
+        .success-message.show { display: block; }
+        .contact-info { text-align: center; font-size: 0.9rem; color: #666; margin-top: 2rem; }
+        @media (max-width: 768px) { .container { padding: 1rem; } .form-row { grid-template-columns: 1fr; } .button-group { flex-direction: column; } button { width: 100%; } }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>MIDEA</h1>
+        <p>Formulaires de demande 2025</p>
+    </div>
+
+    <div class="container">
+        <div class="form-header">
+            <h2>Demande de Remplacement Produit MIDEA 2025</h2>
+            <div class="instructions">
+                <strong>IMPORTANT :</strong>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li>Demande justifiée avec rapport MES, rapports d'interventions et photos/vidéo</li>
+                    <li>Garantie pièces uniquement, remplacement à la charge de l'installateur</li>
+                    <li>Expertise station technique agréée peut être demandée avant acceptation</li>
+                    <li>Produit à conserver 15 jours après acceptation pour collecte</li>
+                </ul>
+                <p style="margin-top: 1rem;"><strong>Pour toute question relative :</strong> hotline@mideahvac.fr</p>
+            </div>
+        </div>
+
+        <form id="remplacementForm">
+            <div class="form-section">
+                <h3>Information client MIDEA</h3>
+                <div class="form-row">
+                    <div class="form-group"><label class="required">Société</label><input type="text" name="societeDistributeur" required></div>
+                    <div class="form-group"><label class=>N° client MIDEA</label><input type="text" name="numClientFrigicoll" required></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label class="required">Nom du contact</label><input type="text" name="nomContactDistributeur" required></div>
+                    <div class="form-group"><label class="required">Téléphone</label><input type="tel" name="telephoneDistributeur" required></div>
+                </div>
+                <div class="form-group"><label class="required">Email</label><input type="email" name="emailDistributeur" required></div>
+            </div>
+
+            <div class="form-section">
+                <h3>Information Installateur</h3>
+                <div class="form-row">
+                    <div class="form-group"><label class="required">Société</label><input type="text" name="societeInstallateur" required></div>
+                    <div class="form-group"><label class="required">N° Attestation de capacité</label><input type="text" name="numADC" required></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label class="required">Nom du contact</label><input type="text" name="nomContactInstallateur" required></div>
+                    <div class="form-group"><label class="required">Téléphone</label><input type="tel" name="telephoneInstallateur" required></div>
+                </div>
+                <div class="form-group"><label class="required">Email</label><input type="email" name="emailInstallateur" required></div>
+            </div>
+
+            <div class="form-section">
+                <h3>Information du site</h3>
+                <div class="form-row">
+                    <div class="form-group"><label class="required">Nom du contact</label><input type="text" name="nomContactSite" required></div>
+                    <div class="form-group"><label class="required">Téléphone</label><input type="tel" name="telephoneSite" required></div>
+                </div>
+                <div class="form-group"><label class="required">Nom/Adresse du site</label><textarea name="nomAdresseSite" required></textarea></div>
+                <div class="form-row">
+                    <div class="form-group"><label class="required">Date d'installation</label><input type="date" name="dateInstallation" required></div>
+                    <div class="form-group"><label class="required">Date de panne</label><input type="date" name="datePanne" required></div>
+                    <div class="form-group">
+                        <label class="required">Rapport station technique</label>
+                        <div class="radio-group">
+                            <div class="radio-item"><input type="radio" id="rapportOui" name="rapportStationTechnique" value="Oui" required><label for="rapportOui">Oui</label></div>
+                            <div class="radio-item"><input type="radio" id="rapportNon" name="rapportStationTechnique" value="Non"><label for="rapportNon">Non</label></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Information produit</h3>
+                <div class="form-row">
+                    <div class="form-group"><label class="required">Référence</label><input type="text" name="reference" required></div>
+                    <div class="form-group"><label class="required">Numéro de série (SN)</label><input type="text" name="numeroSerie" required></div>
+                </div>
+                <div class="form-group"><label class="required">N° TICKET HOTLINE</label><input type="text" name="numTicketHotline"></div>
+                <div class="form-group"><label class="required">Descriptif panne, tests effectués, pièces remplacées</label><textarea name="descriptifPanne" rows="6" required></textarea></div>
+            </div>
+
+            <div class="form-section">
+                <h3>Validation</h3>
+                <div class="form-row">
+                    <div class="form-group"><label class="required">Nom du demandeur</label><input type="text" name="nomDemandeur" required></div>
+                    <div class="form-group"><label class="required">Date de la demande</label><input type="date" name="dateDemande" required></div>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button type="submit" class="btn-primary">Envoyer la demande</button>
+            </div>
+        </form>
+
+        <div id="successMessage" class="success-message">
+            <h3>✓ Demande envoyée avec succès !</h3>
+            <p>Votre demande de remplacement a été transmise à hotline@mideahvac.fr</p>
+        </div>
+
+        <div class="contact-info">
+            <p><strong>Hotline :</strong> 09 80 80 15 14 (choix 5)</p>
+            <p><strong>Email :</strong> hotline@mideahvac.fr</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        const EMAILJS_SERVICE_ID = 'service_0f6mbml';
+        const EMAILJS_TEMPLATE_ID = 'template_k4otoru';
+        const EMAILJS_PUBLIC_KEY = 'Wbr5bt7qc2W_mzelX';
+        emailjs.init(EMAILJS_PUBLIC_KEY);
+        
+        document.getElementById('remplacementForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const submitBtn = this.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Envoi en cours...';
+            
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => { data[key] = value; });
+            data.form_type = 'REMPLACEMENT';
+            data.date_soumission = new Date().toLocaleString('fr-FR');
+            
+            try {
+                await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, data);
+                this.style.display = 'none';
+                document.getElementById('successMessage').classList.add('show');
+            } catch (error) {
+                alert('Erreur lors de l\'envoi: ' + error.text);
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Envoyer la demande';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>- Demande de Pièces Détachées MIDEA 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .header {
+            background: #000000;
+            color: #ffffff;
+            padding: 1.5rem 2rem;
+            margin: -20px -20px 20px -20px;
+        }
+        .header h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+        .header p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 0.5rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .form-header {
+            background: #f5f5f5;
+            padding: 2rem;
+            border-left: 4px solid #000000;
+            margin-bottom: 2rem;
+        }
+        .form-header h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        .instructions {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        .form-section {
+            background: #fafafa;
+            border: 1px solid #e0e0e0;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 4px;
+        }
+        .form-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid #000000;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        label.required::after {
+            content: " *";
+            color: #000000;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #d0d0d0;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            transition: border-color 0.3s ease;
+            background: #ffffff;
+        }
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #000000;
+        }
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+            font-family: inherit;
+        }
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: #000000;
+        }
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid #e0e0e0;
+        }
+        button {
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border: 2px solid #000000;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-primary {
+            background: #000000;
+            color: #ffffff;
+        }
+        .btn-primary:hover {
+            background: #333333;
+            transform: translateY(-2px);
+        }
+        .success-message {
+            background: #000000;
+            color: #ffffff;
+            padding: 2rem;
+            border-radius: 4px;
+            text-align: center;
+            margin-top: 2rem;
+            display: none;
+        }
+        .success-message.show {
+            display: block;
+        }
+        .contact-info {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 2rem;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .button-group {
+                flex-direction: column;
+            }
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1> MIDEA</h1>
+        <p>Formulaires de demande 2025</p>
+    </div>
+
+    <div class="container">
+        <div class="form-header">
+            <h2>Demande de Pièces Détachées MIDEA 2025</h2>
+            <div class="instructions">
+                <strong>IMPORTANT :</strong>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li>Toute demande incomplète ne sera pas traitée (N° de série manquant, etc.)</li>
+                    <li>Une photo de la référence du produit et de son numéro de série est conseillée</li>
+                    <li>La garantie Midea est une garantie pièces, en aucun cas main d'œuvre (MO)</li>
+                    <li>Les pièces défectueuses doivent être conservées 3 mois pour expertise constructeur</li>
+                </ul>
+                <p style="margin-top: 1rem;"><strong>Pour toute information complémentaire, merci de contacter :</strong> pieces@mideahvac.fr</p>
+            </div>
+        </div>
+
+        <form id="piecesForm">
+            <!-- Type de demande -->
+            <div class="form-section">
+                <h3>Type de demande</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="required">Type de demande</label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="sousGarantie" name="typeDemande" value="Sous garantie" required>
+                                <label for="sousGarantie">Sous garantie</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="horsGarantie" name="typeDemande" value="Hors garantie">
+                                <label for="horsGarantie">Hors garantie</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="required">Bon de livraison</label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="chiffre" name="bonLivraison" value="Chiffré" required>
+                                <label for="chiffre">Chiffré</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="nonChiffre" name="bonLivraison" value="Non chiffré">
+                                <label for="nonChiffre">Non chiffré</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Information Distributeur -->
+            <div class="form-section">
+                <h3>Information client MIDEA</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="required">Société</label>
+                        <input type="text" name="societeDistributeur" required>
+                    </div>
+                    <div class="form-group">
+                        <label>N° client Midea</label>
+                        <input type="text" name="numClientFrigicoll">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="required">Nom du contact</label>
+                        <input type="text" name="nomContactDistributeur" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="required">Téléphone</label>
+                        <input type="tel" name="telephoneDistributeur" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="required">Email</label>
+                    <input type="email" name="emailDistributeur" required>
+                </div>
+                <div class="form-group">
+                    <label class="required">Adresse</label>
+                    <textarea name="adresseDistributeur" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Adresse de livraison (si différente)</label>
+                    <textarea name="adresseLivraisonDifferente"></textarea>
+                </div>
+            </div>
+
+            <!-- Information Installateur -->
+            <div class="form-section">
+                <h3>Information Installateur</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="required">Nom de l'installateur</label>
+                        <input type="text" name="nomInstallateur" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Référence du dossier</label>
+                        <input type="text" name="referenceDossier">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Information Installation -->
+            <div class="form-section">
+                <h3>Information Installation</h3>
+                <div class="form-group">
+                    <label class="required">Type d'installation</label>
+                    <select name="typeInstallation" required>
+                        <option value="">-- Sélectionner --</option>
+                        <option value="Mono">Mono</option>
+                        <option value="Multi">Multi</option>
+                        <option value="VRF">VRF</option>
+                        <option value="PAC">PAC</option>
+                        <option value="Commandes">Commandes</option>
+                        <option value="Autres">Autres</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="required">Référence produit</label>
+                        <input type="text" name="referenceProduit" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="required">Numéro de série (SN)</label>
+                        <input type="text" name="numeroSerie" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="required">N° TICKET HOTLINE</label>
+                    <input type="text" name="numTicketHotline" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="required">Date installation</label>
+                        <input type="date" name="dateInstallation" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="required">Date panne</label>
+                        <input type="date" name="datePanne" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Code Erreur</label>
+                        <input type="text" name="codeErreur">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="required">Descriptif de la panne et tests effectués</label>
+                    <textarea name="descriptifPanne" rows="4" required></textarea>
+                </div>
+            </div>
+
+            <!-- Pièces demandées -->
+            <div class="form-section">
+                <h3>Pièces demandées</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="required">Réf ou description pièce 1</label>
+                        <input type="text" name="refPiece1" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Réf ou description pièce 2</label>
+                        <input type="text" name="refPiece2">
+                    </div>
+                    <div class="form-group">
+                        <label>Réf ou description pièce 3</label>
+                        <input type="text" name="refPiece3">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Validation -->
+            <div class="form-section">
+                <h3>Validation</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="required">Nom du demandeur</label>
+                        <input type="text" name="nomDemandeur" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="required">Date de la demande</label>
+                        <input type="date" name="dateDemande" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="button-group">
+                <button type="submit" class="btn-primary">Envoyer la demande</button>
+            </div>
+        </form>
+
+        <div id="successMessage" class="success-message">
+            <h3>✓ Demande envoyée avec succès !</h3>
+            <p>Votre demande de pièces détachées a été transmise à pieces@mideahvac.fr</p>
+            <p>Vous recevrez une confirmation par email sous peu.</p>
+        </div>
+
+        <div class="contact-info">
+            <p><strong>Hotline :</strong> 09 80 80 15 14 (choix 5)</p>
+            <p><strong>Email :</strong> pieces@mideahvac.fr</p>
+        </div>
+    </div>
+
+    <script>
+        // Logique automatique: Garantie → Bon de livraison
+        const sousGarantieRadio = document.getElementById('sousGarantie');
+        const horsGarantieRadio = document.getElementById('horsGarantie');
+        const nonChiffreRadio = document.getElementById('nonChiffre');
+        const chiffreRadio = document.getElementById('chiffre');
+
+        sousGarantieRadio.addEventListener('change', function() {
+            if (this.checked) {
+                nonChiffreRadio.checked = true;
+            }
+        });
+
+        horsGarantieRadio.addEventListener('change', function() {
+            if (this.checked) {
+                chiffreRadio.checked = true;
+            }
+        });
+
+        // Soumission du formulaire
+        document.getElementById('piecesForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Récupérer toutes les données du formulaire
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+            
+            // Afficher dans la console
+            console.log('Données du formulaire:', data);
+            
+            // Simuler l'envoi
+            setTimeout(() => {
+                this.style.display = 'none';
+                document.getElementById('successMessage').classList.add('show');
+                
+                // Afficher un résumé dans la console
+                console.log('✓ Formulaire envoyé avec succès!');
+                console.log('Email destinataire: pieces@mideahvac.fr');
+            }, 500);
+        });
+    </script>
+</body>
+</html>
