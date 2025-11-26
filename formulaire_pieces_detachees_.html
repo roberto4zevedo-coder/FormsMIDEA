@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>- Demande de Pièces Détachées MIDEA 2025</title>
+    <title>Demande de Pièces Détachées MIDEA 2025</title>
     <style>
         * {
             margin: 0;
@@ -148,9 +148,13 @@
             background: #000000;
             color: #ffffff;
         }
-        .btn-primary:hover {
+        .btn-primary:hover:not(:disabled) {
             background: #333333;
             transform: translateY(-2px);
+        }
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
         }
         .success-message {
             background: #000000;
@@ -164,11 +168,31 @@
         .success-message.show {
             display: block;
         }
+        .error-message {
+            background: #ff4444;
+            color: #ffffff;
+            padding: 1rem;
+            border-radius: 4px;
+            text-align: center;
+            margin-top: 1rem;
+            display: none;
+        }
+        .error-message.show {
+            display: block;
+        }
         .contact-info {
             text-align: center;
             font-size: 0.9rem;
             color: #666;
             margin-top: 2rem;
+        }
+        .loading {
+            display: none;
+            text-align: center;
+            margin-top: 1rem;
+        }
+        .loading.show {
+            display: block;
         }
         @media (max-width: 768px) {
             .container {
@@ -188,7 +212,7 @@
 </head>
 <body>
     <div class="header">
-        <h1> MIDEA</h1>
+        <h1>MIDEA</h1>
         <p>Formulaires de demande 2025</p>
     </div>
 
@@ -378,14 +402,24 @@
 
             <!-- Buttons -->
             <div class="button-group">
-                <button type="submit" class="btn-primary">Envoyer la demande</button>
+                <button type="submit" class="btn-primary" id="submitBtn">Envoyer la demande</button>
+            </div>
+
+            <div class="loading" id="loadingMessage">
+                <p>⏳ Envoi en cours...</p>
             </div>
         </form>
 
         <div id="successMessage" class="success-message">
             <h3>✓ Demande envoyée avec succès !</h3>
             <p>Votre demande de pièces détachées a été transmise à pieces@mideahvac.fr</p>
+            <p>Numéro de référence : <strong id="refNumber"></strong></p>
             <p>Vous recevrez une confirmation par email sous peu.</p>
+        </div>
+
+        <div id="errorMessage" class="error-message">
+            <h3>❌ Erreur lors de l'envoi</h3>
+            <p id="errorText">Une erreur est survenue. Veuillez réessayer ou contacter pieces@mideahvac.fr</p>
         </div>
 
         <div class="contact-info">
@@ -394,7 +428,14 @@
         </div>
     </div>
 
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
+        // Initialisation EmailJS
+        (function() {
+            emailjs.init("Wbr5bt7qc2W_mzelX");
+        })();
+
         // Logique automatique: Garantie → Bon de livraison
         const sousGarantieRadio = document.getElementById('sousGarantie');
         const horsGarantieRadio = document.getElementById('horsGarantie');
@@ -413,29 +454,77 @@
             }
         });
 
-        // Soumission du formulaire
+        // Générer un numéro de référence unique
+        function generateReference() {
+            const date = new Date();
+            const timestamp = date.getTime().toString().slice(-6);
+            return `PIECE-${timestamp}`;
+        }
+
+        // Soumission du formulaire avec EmailJS
         document.getElementById('piecesForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
+            const submitBtn = document.getElementById('submitBtn');
+            const loadingMsg = document.getElementById('loadingMessage');
+            const successMsg = document.getElementById('successMessage');
+            const errorMsg = document.getElementById('errorMessage');
+            
+            // Désactiver le bouton et afficher le loading
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Envoi en cours...';
+            loadingMsg.classList.add('show');
+            errorMsg.classList.remove('show');
+            
             // Récupérer toutes les données du formulaire
             const formData = new FormData(this);
-            const data = {};
+            const templateParams = {};
+            
             formData.forEach((value, key) => {
-                data[key] = value;
+                templateParams[key] = value || 'Non renseigné';
             });
             
-            // Afficher dans la console
-            console.log('Données du formulaire:', data);
+            // Ajouter le numéro de référence
+            const refNumber = generateReference();
+            templateParams.refNumber = refNumber;
             
-            // Simuler l'envoi
-            setTimeout(() => {
-                this.style.display = 'none';
-                document.getElementById('successMessage').classList.add('show');
-                
-                // Afficher un résumé dans la console
-                console.log('✓ Formulaire envoyé avec succès!');
-                console.log('Email destinataire: pieces@mideahvac.fr');
-            }, 500);
+            // Préparer le sujet pour le routage Power Automate
+            templateParams.subject = '[DEMANDE_PIECE] Nouvelle demande - ' + templateParams.nomDemandeur;
+            
+            console.log('Envoi des données:', templateParams);
+            
+            // Envoyer via EmailJS
+            emailjs.send('service_0f6mbml', 'template_hhkcf3d', templateParams)
+                .then(function(response) {
+                    console.log('✓ Email envoyé avec succès!', response);
+                    
+                    // Masquer le formulaire et le loading
+                    document.getElementById('piecesForm').style.display = 'none';
+                    loadingMsg.classList.remove('show');
+                    
+                    // Afficher le message de succès avec le numéro de référence
+                    document.getElementById('refNumber').textContent = refNumber;
+                    successMsg.classList.add('show');
+                    
+                }, function(error) {
+                    console.error('❌ Erreur lors de l\'envoi:', error);
+                    
+                    // Réactiver le bouton
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Envoyer la demande';
+                    loadingMsg.classList.remove('show');
+                    
+                    // Afficher le message d'erreur
+                    document.getElementById('errorText').textContent = 
+                        'Erreur technique: ' + (error.text || 'Veuillez réessayer');
+                    errorMsg.classList.add('show');
+                });
+        });
+
+        // Définir la date du jour par défaut
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date().toISOString().split('T')[0];
+            document.querySelector('input[name="dateDemande"]').value = today;
         });
     </script>
 </body>
