@@ -37,6 +37,29 @@
             margin: 0 auto;
             padding: 2rem;
         }
+        
+        /* Encart de prévention */
+        .warning-box {
+            background: #fff3cd;
+            border: 2px solid #000000;
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .warning-box h4 {
+            color: #000000;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .warning-box p {
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+            color: #333;
+        }
+        
         .form-header {
             background: #f5f5f5;
             padding: 2rem;
@@ -217,17 +240,21 @@
     </div>
 
     <div class="container">
+        
+        <!-- Encart de prévention -->
+        <div class="warning-box">
+            <h4>⚠️ Informations importantes</h4>
+            <p><strong>Demande incomplète :</strong> Toute demande incomplète ne sera pas traitée (N° de série manquant…).</p>
+            <p><strong>Photo conseillée :</strong> Afin d'éviter toute erreur de saisie, une photo de la référence du produit et de son numéro de série est conseillée.</p>
+            <p><strong>Garantie :</strong> La garantie MIDEA HVAC est une garantie pièces et en aucun cas main d'œuvre (MO). La garantie ne pourra en aucun cas être obtenue suite à des défaillances causées par une mauvaise installation, une utilisation anormale, une tension électrique inadaptée ou une maintenance défectueuse.</p>
+            <p><strong>Conservation des pièces :</strong> Les pièces défectueuses doivent impérativement être conservées 3 mois par le demandeur en cas d'expertise constructeur.</p>
+            <p><strong>Conseil :</strong> Afin d'éviter le remplacement de pièces inutile, notre réseau de stations techniques agréées se tient à votre disposition pour tout diagnostic précis, pensez-y !</p>
+        </div>
+
         <div class="form-header">
             <h2>Demande de Pièces Détachées MIDEA 2025</h2>
             <div class="instructions">
-                <strong>IMPORTANT :</strong>
-                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
-                    <li>Toute demande incomplète ne sera pas traitée (N° de série manquant, etc.)</li>
-                    <li>Une photo de la référence du produit et de son numéro de série est conseillée</li>
-                    <li>La garantie Midea est une garantie pièces, en aucun cas main d'œuvre (MO)</li>
-                    <li>Les pièces défectueuses doivent être conservées 3 mois pour expertise constructeur</li>
-                </ul>
-                <p style="margin-top: 1rem;"><strong>Pour toute information complémentaire, merci de contacter :</strong> pieces@mideahvac.fr</p>
+                <strong>Pour toute information complémentaire :</strong> pieces@mideahvac.fr
             </div>
         </div>
 
@@ -343,7 +370,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="required">N° TICKET HOTLINE</label>
+                    <label class="required">N° Ticket Hotline</label>
                     <input type="text" name="numTicketHotline" required>
                 </div>
                 <div class="form-row">
@@ -356,7 +383,7 @@
                         <input type="date" name="datePanne" required>
                     </div>
                     <div class="form-group">
-                        <label>Code Erreur</label>
+                        <label>Code erreur</label>
                         <input type="text" name="codeErreur">
                     </div>
                 </div>
