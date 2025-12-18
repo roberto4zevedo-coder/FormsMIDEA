@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FRIGICOLL - Pré-visite VRF MIDEA 2025</title>
+    <title>Pré-visite VRF MIDEA 2025</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; background: #ffffff; color: #000000; line-height: 1.6; padding: 20px; }
@@ -11,6 +11,29 @@
         .header h1 { font-size: 1.8rem; font-weight: 600; }
         .header p { font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem; }
         .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        
+        /* Encart de prévention */
+        .warning-box {
+            background: #fff3cd;
+            border: 2px solid #000000;
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .warning-box h4 {
+            color: #000000;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .warning-box p {
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+            color: #333;
+        }
+        
         .form-header { background: #f5f5f5; padding: 2rem; border-left: 4px solid #000000; margin-bottom: 2rem; }
         .form-header h2 { font-size: 1.8rem; margin-bottom: 0.5rem; }
         .instructions { background: #ffffff; border: 1px solid #e0e0e0; padding: 1rem; margin-top: 1rem; border-radius: 4px; font-size: 0.9rem; }
@@ -39,11 +62,21 @@
     </div>
 
     <div class="container">
+        
+        <!-- Encart de prévention -->
+        <div class="warning-box">
+            <h4>⚠️ Informations importantes</h4>
+            <p><strong>Accès et sécurité :</strong> Le total accès et la mise en sécurité du lieu de l'intervention par l'installateur sont obligatoires (échafaudage, balisage, barrière de sécurité, accès au matériel…).</p>
+            <p><strong>Pénalités :</strong> Toute intervention annulée moins de 24h avant l'intervention ou impossible, une pénalité de 250€ HT sera facturée en compensation (exemples : installateur absent, installation non finalisée, défaut d'alimentation électrique…).</p>
+            <p><strong>Documents requis :</strong> Le présent document doit être remis en même temps que le synoptique de l'installation stipulant les longueurs réelles du site afin de permettre le calcul de l'appoint de charge en fluide frigorigène nécessaire.</p>
+            <p><strong>Délais :</strong> Toute demande incomplète ne sera pas traitée et repoussera d'autant le délai de 10 jours.</p>
+        </div>
+
         <div class="form-header">
             <h2>Demande de Pré-visite VRF MIDEA 2025</h2>
             <div class="instructions">
                 <strong>OBJECTIF :</strong> Vérification de l'installation avant mise en service<br>
-                <strong>Pour toute question relative :</strong> hotline@mideahvac.fr
+                <strong>Pour toute question :</strong> hotline@mideahvac.fr
             </div>
         </div>
 
@@ -53,7 +86,7 @@
                 <div class="form-row">
                     <div class="form-group"><label class="required">Société</label><input type="text" name="societeDistributeur" required></div>
                     <div class="form-group"><label class="required">Téléphone</label><input type="tel" name="telephoneDistributeur" required></div>
-                    <div class="form-group"><label class=>N° client Midea</label><input type="text" name="numClientFrigicoll" required></div>
+                    <div class="form-group"><label>N° client Midea</label><input type="text" name="numClientFrigicoll"></div>
                 </div>
                 <div class="form-row">
                     <div class="form-group"><label class="required">Contact</label><input type="text" name="contactDistributeur" required></div>
