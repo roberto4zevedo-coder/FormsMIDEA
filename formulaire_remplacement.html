@@ -11,6 +11,29 @@
         .header h1 { font-size: 1.8rem; font-weight: 600; }
         .header p { font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem; }
         .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        
+        /* Encart de prévention */
+        .warning-box {
+            background: #fff3cd;
+            border: 2px solid #000000;
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .warning-box h4 {
+            color: #000000;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .warning-box p {
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+            color: #333;
+        }
+        
         .form-header { background: #f5f5f5; padding: 2rem; border-left: 4px solid #000000; margin-bottom: 2rem; }
         .form-header h2 { font-size: 1.8rem; margin-bottom: 0.5rem; }
         .instructions { background: #ffffff; border: 1px solid #e0e0e0; padding: 1rem; margin-top: 1rem; border-radius: 4px; font-size: 0.9rem; }
@@ -43,17 +66,22 @@
     </div>
 
     <div class="container">
+        
+        <!-- Encart de prévention -->
+        <div class="warning-box">
+            <h4>⚠️ Informations importantes</h4>
+            <p><strong>Justification obligatoire :</strong> Toute demande de remplacement de produit doit être justifiée et la demande concrètement renseignée avec joint le rapport de mise en service, rapports d'intervention et photos ou vidéo du problème.</p>
+            <p><strong>Exclusions de garantie :</strong> La demande de remplacement ne pourra en aucun cas être obtenue suite à des défaillances causées par une mauvaise installation, une utilisation anormale, une tension électrique inadaptée, une maintenance défectueuse ou erreur de diagnostic de panne.</p>
+            <p><strong>Garantie :</strong> La garantie MIDEA est une garantie de pièces et en aucun cas une main d'œuvre (MO), le remplacement du produit est à la charge de l'installateur.</p>
+            <p><strong>Expertise :</strong> Une expertise par une station technique agréée pourra être demandée via le formulaire de demande d'assistance.</p>
+            <p><strong>Photo conseillée :</strong> Afin d'éviter les erreurs de saisie, une photo de l'étiquette de la référence et du numéro de série est conseillée.</p>
+            <p><strong>Conservation du produit :</strong> Après acceptation du remplacement du produit, celui-ci devra être conservé jusqu'à la collecte par MIDEA HVAC si demandée, dans un délai de 15 jours.</p>
+        </div>
+
         <div class="form-header">
             <h2>Demande de Remplacement Produit MIDEA 2025</h2>
             <div class="instructions">
-                <strong>IMPORTANT :</strong>
-                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
-                    <li>Demande justifiée avec rapport MES, rapports d'interventions et photos/vidéo</li>
-                    <li>Garantie pièces uniquement, remplacement à la charge de l'installateur</li>
-                    <li>Expertise station technique agréée peut être demandée avant acceptation</li>
-                    <li>Produit à conserver 15 jours après acceptation pour collecte</li>
-                </ul>
-                <p style="margin-top: 1rem;"><strong>Pour toute question relative :</strong> hotline@mideahvac.fr</p>
+                <strong>Pour toute question :</strong> hotline@mideahvac.fr
             </div>
         </div>
 
@@ -62,7 +90,7 @@
                 <h3>Information client MIDEA</h3>
                 <div class="form-row">
                     <div class="form-group"><label class="required">Société</label><input type="text" name="societeDistributeur" required></div>
-                    <div class="form-group"><label class=>N° client MIDEA</label><input type="text" name="numClientFrigicoll" required></div>
+                    <div class="form-group"><label>N° client MIDEA</label><input type="text" name="numClientFrigicoll"></div>
                 </div>
                 <div class="form-row">
                     <div class="form-group"><label class="required">Nom du contact</label><input type="text" name="nomContactDistributeur" required></div>
@@ -110,7 +138,7 @@
                     <div class="form-group"><label class="required">Référence</label><input type="text" name="reference" required></div>
                     <div class="form-group"><label class="required">Numéro de série (SN)</label><input type="text" name="numeroSerie" required></div>
                 </div>
-                <div class="form-group"><label class="required">N° TICKET HOTLINE</label><input type="text" name="numTicketHotline"></div>
+                <div class="form-group"><label class="required">N° Ticket Hotline</label><input type="text" name="numTicketHotline" required></div>
                 <div class="form-group"><label class="required">Descriptif panne, tests effectués, pièces remplacées</label><textarea name="descriptifPanne" rows="6" required></textarea></div>
             </div>
 
