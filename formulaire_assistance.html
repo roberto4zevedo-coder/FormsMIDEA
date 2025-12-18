@@ -11,6 +11,55 @@
         .header h1 { font-size: 1.8rem; font-weight: 600; }
         .header p { font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem; }
         .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        
+        /* Encart de prévention */
+        .warning-box {
+            background: #fff3cd;
+            border: 2px solid #000000;
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .warning-box h4 {
+            color: #000000;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .warning-box p {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        .warning-box .highlight {
+            font-weight: 600;
+        }
+        
+        /* Tableau tarifs */
+        .tarif-table {
+            width: 100%;
+            max-width: 400px;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        .tarif-table th {
+            background: #000000;
+            color: #ffffff;
+            padding: 0.75rem 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        .tarif-table td {
+            padding: 0.75rem 1rem;
+            border: 1px solid #d0d0d0;
+            background: #ffffff;
+        }
+        .tarif-table tr:nth-child(even) td {
+            background: #f9f9f9;
+        }
+        
         .form-header { background: #f5f5f5; padding: 2rem; border-left: 4px solid #000000; margin-bottom: 2rem; }
         .form-header h2 { font-size: 1.8rem; margin-bottom: 0.5rem; }
         .instructions { background: #ffffff; border: 1px solid #e0e0e0; padding: 1rem; margin-top: 1rem; border-radius: 4px; font-size: 0.9rem; }
@@ -42,12 +91,44 @@
     </div>
 
     <div class="container">
+        
+        <!-- Encart de prévention -->
+        <div class="warning-box">
+            <h4>⚠️ Informations importantes</h4>
+            <p>Toute demande d'assistance technique sous garantie ou hors garantie <span class="highlight">doit faire l'objet d'un bon de commande</span>. Le résultat de l'intervention ouvrira ou non droit à la prise en charge de celle-ci par MIDEA HVAC France pour les produits sous garantie.</p>
+            <p>Toute intervention annulée ou impossible moins de 24h avant l'intervention, une pénalité de 250€ HT pourra être réclamée en compensation (exemples : installateur absent, installation non finalisée, défaut d'alimentation électrique…).</p>
+            
+            <p style="margin-bottom: 0.5rem; font-weight: 600;">Barème prestation :</p>
+            <table class="tarif-table">
+                <thead>
+                    <tr>
+                        <th>Durée</th>
+                        <th>Tarif</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2 heures</td>
+                        <td>300€ HT</td>
+                    </tr>
+                    <tr>
+                        <td>Demi-journée</td>
+                        <td>500€ HT</td>
+                    </tr>
+                    <tr>
+                        <td>Journée</td>
+                        <td>750€ HT</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
         <div class="form-header">
             <h2>Demande d'Assistance Technique MIDEA 2025</h2>
             <div class="instructions">
                 <strong>Conditions :</strong> Intervention payante selon conditions générales de vente. 
-                Bon de commande obligatoire. Délai: sous 8 jours ouvrés.
-                <p style="margin-top: 1rem;"><strong>Pour toute question relative :</strong> hotline@mideahvac.fr</p>
+                Bon de commande obligatoire. Délai : sous 8 jours ouvrés.
+                <p style="margin-top: 1rem;"><strong>Pour toute question :</strong> hotline@mideahvac.fr</p>
             </div>
         </div>
 
@@ -56,7 +137,7 @@
                 <h3>Information client MIDEA</h3>
                 <div class="form-row">
                     <div class="form-group"><label class="required">Société</label><input type="text" name="societeDistributeur" required></div>
-                    <div class="form-group"><label class=>N° client Frigicoll</label><input type="text" name="numClientFrigicoll" required></div>
+                    <div class="form-group"><label>N° client Frigicoll</label><input type="text" name="numClientFrigicoll"></div>
                 </div>
                 <div class="form-row">
                     <div class="form-group"><label class="required">Nom du contact</label><input type="text" name="nomContactDistributeur" required></div>
@@ -109,7 +190,7 @@
                     <div class="form-group"><label class="required">Référence produit</label><input type="text" name="referenceProduit" required></div>
                     <div class="form-group"><label class="required">Numéro de série (SN)</label><input type="text" name="numeroSerie" required></div>
                 </div>
-                <div class="form-group"><label class="required">N° TICKET HOTLINE</label><input type="text" name="numTicketHotline"></div>
+                <div class="form-group"><label class="required">N° Ticket Hotline</label><input type="text" name="numTicketHotline" required></div>
                 <div class="form-row">
                     <div class="form-group"><label class="required">Date d'installation</label><input type="date" name="dateInstallation" required></div>
                     <div class="form-group"><label class="required">Date de panne</label><input type="date" name="datePanne" required></div>
