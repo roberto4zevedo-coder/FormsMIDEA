@@ -85,6 +85,28 @@
     margin-bottom: 0.8rem;
     font-size: 0.9rem;
 }
+
+/* Encart de prévention en haut */
+.warning-box {
+    background: #fff3cd;
+    border: 2px solid #000000;
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+.warning-box h4 {
+    color: #000000;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.warning-box p {
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+    color: #333;
+}
     </style>
 </head>
 <body>
@@ -94,11 +116,21 @@
     </div>
 
     <div class="container">
+        
+        <!-- Encart de prévention -->
+        <div class="warning-box">
+            <h4>⚠️ Informations importantes</h4>
+            <p><strong>Accès et sécurité :</strong> Le total accès et la mise en sécurité du lieu de l'intervention par l'installateur sont obligatoires (échafaudage, balisage, barrière de sécurité, accès au matériel…).</p>
+            <p><strong>Pénalités :</strong> Toute intervention annulée moins de 24h avant l'intervention ou impossible, une pénalité de 250€ HT sera facturée en compensation (exemples : installateur absent, installation non finalisée, défaut d'alimentation électrique…).</p>
+            <p><strong>Documents requis :</strong> Le présent document doit être remis en même temps que le synoptique de l'installation stipulant les longueurs réelles du site afin de permettre le calcul de l'appoint de charge en fluide frigorigène nécessaire.</p>
+            <p><strong>Délais :</strong> Toute demande incomplète ne sera pas traitée et repoussera d'autant le délai de 10 jours.</p>
+        </div>
+
         <div class="form-header">
             <h2>Mise En Service CTA (AHU) MIDEA 2025</h2>
             <div class="instructions">
                 <strong>OBLIGATOIRE :</strong> CTA installée + Groupe froid en service + Régulation programmée<br>
-                <strong>Pour toute question relative :</strong> hotline@mideahvac.fr
+                <strong>Pour toute question :</strong> hotline@mideahvac.fr
             </div>
         </div>
 
@@ -108,7 +140,7 @@
                 <div class="form-row">
                     <div class="form-group"><label class="required">Société</label><input type="text" name="societeDistributeur" required></div>
                     <div class="form-group"><label class="required">Téléphone</label><input type="tel" name="telephoneDistributeur" required></div>
-                    <div class="form-group"><label class=>N° client Midea</label><input type="text" name="numClientFrigicoll" required></div>
+                    <div class="form-group"><label>N° client Midea</label><input type="text" name="numClientFrigicoll"></div>
                 </div>
                 <div class="form-row">
                     <div class="form-group"><label class="required">Contact</label><input type="text" name="contactDistributeur" required></div>
@@ -172,7 +204,7 @@
                 <h3>Conditions préalables pour MES</h3>
                 <div class="checkbox-group">
                     <input type="checkbox" id="c1" name="controle1" value="OK" class="checklist-item">
-                    <label for="c1">Le(s) kit(s) AHUKZ et unité(s)extérieure(s) sont installés conformément à la notice d'installation</label>
+                    <label for="c1">Le(s) kit(s) AHUKZ et unité(s) extérieure(s) sont installés conformément à la notice d'installation</label>
                 </div>
                  <div class="checkbox-group">
                     <input type="checkbox" id="c2" name="controle2" value="OK" class="checklist-item">
@@ -180,19 +212,19 @@
                 </div>
                 <div class="checkbox-group">
                     <input type="checkbox" id="c3" name="controle3" value="OK" class="checklist-item">
-                    <label for="c3">L'alimentation éléctrique définitive est présente sur le site</label>
+                    <label for="c3">L'alimentation électrique définitive est présente sur le site</label>
                 </div>
                 <div class="checkbox-group">
                     <input type="checkbox" id="c4" name="controle4" value="OK" class="checklist-item">
-                    <label for="c4">Les protections et sections de cäbles sont conformes aux normes électrique actuelle</label>
+                    <label for="c4">Les protections et sections de câbles sont conformes aux normes électriques actuelles</label>
                 </div>
                 <div class="checkbox-group">
                     <input type="checkbox" id="c5" name="controle5" value="OK" class="checklist-item">
-                    <label for="c5">L'alimentation du ou des groupes extérieurs et du ou des kit AHUKZ sont indépendante les une et des autres</label>
+                    <label for="c5">L'alimentation du ou des groupes extérieurs et du ou des kits AHUKZ sont indépendantes les unes des autres</label>
                 </div>
                 <div class="checkbox-group">
                     <input type="checkbox" id="c6" name="controle6" value="OK" class="checklist-item">
-                    <label for="c6">Le bus de communication 3x0,75 blindé est connecté au(x) Kit AHUKZ sans boite de dérivation</label>
+                    <label for="c6">Le bus de communication 3x0,75 blindé est connecté au(x) kit(s) AHUKZ sans boîte de dérivation</label>
                 </div>
                 <div class="checkbox-group">
                     <input type="checkbox" id="c7" name="controle7" value="OK" class="checklist-item">
@@ -200,7 +232,7 @@
                 </div>
                 <div class="checkbox-group">
                     <input type="checkbox" id="c8" name="controle8" value="OK" class="checklist-item">
-                    <label for="c8">L'installation frigorifique est conforme aux préconisations constructeur (exemple: Y a plat)</label>
+                    <label for="c8">L'installation frigorifique est conforme aux préconisations constructeur (exemple : Y à plat)</label>
                 </div>
                <div class="checkbox-group">
                     <input type="checkbox" id="c9" name="controle9" value="OK" class="checklist-item">
@@ -212,22 +244,22 @@
                 </div>
                <div class="checkbox-group">
                     <input type="checkbox" id="c11" name="controle11" value="OK" class="checklist-item">
-                    <label for="c11">Le test d'étanchéité effectué suivant la norme EN378 (responsabilité de l'installateur) (38 Bars)</label>
+                    <label for="c11">Le test d'étanchéité effectué suivant la norme EN378 (responsabilité de l'installateur) (38 bars)</label>
                 </div>
                 <div class="checkbox-group">
                     <input type="checkbox" id="c12" name="controle12" value="OK" class="checklist-item">
-                    <label for="c12">Le tirage au vide maintenu pendant 12h a infèrieur 0,4torr (responsabilité de l'installateur)</label>
+                    <label for="c12">Le tirage au vide maintenu pendant 12h à inférieur 0,4 torr (responsabilité de l'installateur)</label>
                 </div>
                 <div class="checkbox-group">
                     <input type="checkbox" id="c13" name="controle13" value="OK" class="checklist-item">
-                    <label for="c13">Le fluide nécéssaire pour l'appoint de charge est fourni par l'installateur (tarification sur devis)</label>
+                    <label for="c13">Le fluide nécessaire pour l'appoint de charge est fourni par l'installateur (tarification sur devis)</label>
                 </div>
 
             <!-- Warning slide-in -->
                 <div id="validationWarning" class="validation-warning">
                     <h4>⚠️ ENGAGEMENT DE CONFORMITÉ</h4>
                     <p>En cochant tous les points ci-dessus, vous certifiez que l'installation est conforme et prête pour la mise en service.</p>
-                    <p style="margin-top: 0.8rem; font-weight: bold;">Toute intervention annulée moins de 24h avant l'intervention ou impossible, une pénalité de 250€HT sera facturée en compensation (exemples : installateur absent, installation non finalisée, défaut d'alimentation électrique, …)</p>
+                    <p style="margin-top: 0.8rem; font-weight: bold;">Toute intervention annulée moins de 24h avant l'intervention ou impossible, une pénalité de 250€ HT sera facturée en compensation (exemples : installateur absent, installation non finalisée, défaut d'alimentation électrique…).</p>
                 </div>
             </div>
 
@@ -249,16 +281,8 @@
             <h3>✓ Demande envoyée avec succès !</h3>
             <p>Votre demande de MES CTA a été transmise à hotline@mideahvac.fr</p>
         </div>
-    </div>
 
-     <!-- Footer warnings -->
-        <div class="footer-warnings">
-            <h4>⚠️ INFORMATIONS IMPORTANTES</h4>
-            <p><strong>Accès et sécurité :</strong> Le total accès et la mise en sécurité du lieu de l'intervention par l'installateur sont obligatoires (échafaudage, balisage, barrière de sécurité, accès au matériel, ...)</p>
-            <p><strong>Pénalités :</strong> Toute intervention annulée moins de 24h avant l'intervention ou impossible, une pénalité de 250€HT sera facturée en compensation (exemples : installateur absent, installation non finalisée, défaut d'alimentation électrique, ...)</p>
-            <p><strong>Documents requis :</strong> Le présent document doit être remis en même temps que le synoptique de l'installation stipulant les longueurs réelles du site afin de permettre le calcul de l'appoint de charge en fluide frigorigène nécessaire.</p>
-            <p><strong>Délais :</strong> Toute demande incomplète ne sera pas traitée et repoussera d'autant le délai de 10 jours.</p>
-        </div>
+        <!-- Les informations importantes sont maintenant en haut du formulaire -->
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
