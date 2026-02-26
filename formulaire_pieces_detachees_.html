@@ -3,14 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demande d'Assistance Technique MIDEA 2025</title>
+    <title>Demande de Pièces Détachées MIDEA 2025</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; background: #ffffff; color: #000000; line-height: 1.6; padding: 20px; }
-        .header { background: #000000; color: #ffffff; padding: 1.5rem 2rem; margin: -20px -20px 20px -20px; }
-        .header h1 { font-size: 1.8rem; font-weight: 600; }
-        .header p { font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .header {
+            background: #000000;
+            color: #ffffff;
+            padding: 1.5rem 2rem;
+            margin: -20px -20px 20px -20px;
+        }
+        .header h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+        .header p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 0.5rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
         
         /* Encart de prévention */
         .warning-box {
@@ -30,58 +56,181 @@
         }
         .warning-box p {
             font-size: 0.95rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             color: #333;
         }
-        .warning-box .highlight {
-            font-weight: 600;
-        }
         
-        /* Tableau tarifs */
-        .tarif-table {
-            width: 100%;
-            max-width: 400px;
-            border-collapse: collapse;
+        .form-header {
+            background: #f5f5f5;
+            padding: 2rem;
+            border-left: 4px solid #000000;
+            margin-bottom: 2rem;
+        }
+        .form-header h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        .instructions {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            padding: 1rem;
             margin-top: 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
         }
-        .tarif-table th {
-            background: #000000;
-            color: #ffffff;
-            padding: 0.75rem 1rem;
-            text-align: left;
-            font-weight: 600;
+        .form-section {
+            background: #fafafa;
+            border: 1px solid #e0e0e0;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 4px;
         }
-        .tarif-table td {
-            padding: 0.75rem 1rem;
-            border: 1px solid #d0d0d0;
+        .form-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid #000000;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        label.required::after {
+            content: " *";
+            color: #000000;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #d0d0d0;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            transition: border-color 0.3s ease;
             background: #ffffff;
         }
-        .tarif-table tr:nth-child(even) td {
-            background: #f9f9f9;
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #000000;
         }
-        
-        .form-header { background: #f5f5f5; padding: 2rem; border-left: 4px solid #000000; margin-bottom: 2rem; }
-        .form-header h2 { font-size: 1.8rem; margin-bottom: 0.5rem; }
-        .instructions { background: #ffffff; border: 1px solid #e0e0e0; padding: 1rem; margin-top: 1rem; border-radius: 4px; font-size: 0.9rem; }
-        .form-section { background: #fafafa; border: 1px solid #e0e0e0; padding: 2rem; margin-bottom: 2rem; border-radius: 4px; }
-        .form-section h3 { font-size: 1.3rem; margin-bottom: 1.5rem; padding-bottom: 0.8rem; border-bottom: 2px solid #000000; }
-        .form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem; }
-        .form-group { margin-bottom: 1.5rem; }
-        label { display: block; font-weight: 500; margin-bottom: 0.5rem; font-size: 0.95rem; }
-        label.required::after { content: " *"; color: #000000; font-weight: bold; }
-        input[type="text"], input[type="email"], input[type="tel"], input[type="date"], textarea, select { width: 100%; padding: 0.75rem; border: 2px solid #d0d0d0; border-radius: 4px; font-size: 0.95rem; transition: border-color 0.3s ease; background: #ffffff; }
-        input:focus, textarea:focus, select:focus { outline: none; border-color: #000000; }
-        textarea { min-height: 100px; resize: vertical; font-family: inherit; }
-        .radio-group { display: flex; flex-wrap: wrap; gap: 1rem; }
-        .radio-item { display: flex; align-items: center; gap: 0.5rem; }
-        input[type="radio"] { width: 18px; height: 18px; cursor: pointer; accent-color: #000000; }
-        .button-group { display: flex; gap: 1rem; justify-content: center; margin-top: 3rem; padding-top: 2rem; border-top: 2px solid #e0e0e0; }
-        button { padding: 1rem 2.5rem; font-size: 1rem; font-weight: 600; border: 2px solid #000000; border-radius: 4px; cursor: pointer; transition: all 0.3s ease; }
-        .btn-primary { background: #000000; color: #ffffff; }
-        .btn-primary:hover { background: #333333; transform: translateY(-2px); }
-        .success-message { background: #000000; color: #ffffff; padding: 2rem; border-radius: 4px; text-align: center; margin-top: 2rem; display: none; }
-        .success-message.show { display: block; }
-        @media (max-width: 768px) { .container { padding: 1rem; } .form-row { grid-template-columns: 1fr; } }
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+            font-family: inherit;
+        }
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: #000000;
+        }
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid #e0e0e0;
+        }
+        button {
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border: 2px solid #000000;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-primary {
+            background: #000000;
+            color: #ffffff;
+        }
+        .btn-primary:hover:not(:disabled) {
+            background: #333333;
+            transform: translateY(-2px);
+        }
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        .success-message {
+            background: #000000;
+            color: #ffffff;
+            padding: 2rem;
+            border-radius: 4px;
+            text-align: center;
+            margin-top: 2rem;
+            display: none;
+        }
+        .success-message.show {
+            display: block;
+        }
+        .error-message {
+            background: #ff4444;
+            color: #ffffff;
+            padding: 1rem;
+            border-radius: 4px;
+            text-align: center;
+            margin-top: 1rem;
+            display: none;
+        }
+        .error-message.show {
+            display: block;
+        }
+        .contact-info {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 2rem;
+        }
+        .loading {
+            display: none;
+            text-align: center;
+            margin-top: 1rem;
+        }
+        .loading.show {
+            display: block;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .button-group {
+                flex-direction: column;
+            }
+            button {
+                width: 100%;
+            }
+        }
 
         /* ===== PIÈCES JOINTES ===== */
         .file-upload-section {
@@ -145,125 +294,190 @@
         <!-- Encart de prévention -->
         <div class="warning-box">
             <h4>⚠️ Informations importantes</h4>
-            <p>Toute demande d'assistance technique sous garantie ou hors garantie <span class="highlight">doit faire l'objet d'un bon de commande</span>. Le résultat de l'intervention ouvrira ou non droit à la prise en charge de celle-ci par MIDEA HVAC France pour les produits sous garantie.</p>
-            <p>Toute intervention annulée ou impossible moins de 24h avant l'intervention, une pénalité de 250€ HT pourra être réclamée en compensation (exemples : installateur absent, installation non finalisée, défaut d'alimentation électrique…).</p>
-            
-            <p style="margin-bottom: 0.5rem; font-weight: 600;">Barème prestation :</p>
-            <table class="tarif-table">
-                <thead>
-                    <tr>
-                        <th>Durée</th>
-                        <th>Tarif</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>2 heures</td>
-                        <td>300€ HT</td>
-                    </tr>
-                    <tr>
-                        <td>Demi-journée</td>
-                        <td>500€ HT</td>
-                    </tr>
-                    <tr>
-                        <td>Journée</td>
-                        <td>750€ HT</td>
-                    </tr>
-                </tbody>
-            </table>
+            <p><strong>Demande incomplète :</strong> Toute demande incomplète ne sera pas traitée (N° de série manquant…).</p>
+            <p><strong>Photo conseillée :</strong> Afin d'éviter toute erreur de saisie, une photo de la référence du produit et de son numéro de série est conseillée.</p>
+            <p><strong>Garantie :</strong> La garantie MIDEA HVAC est une garantie pièces et en aucun cas main d'œuvre (MO). La garantie ne pourra en aucun cas être obtenue suite à des défaillances causées par une mauvaise installation, une utilisation anormale, une tension électrique inadaptée ou une maintenance défectueuse.</p>
+            <p><strong>Conservation des pièces :</strong> Les pièces défectueuses doivent impérativement être conservées 3 mois par le demandeur en cas d'expertise constructeur.</p>
+            <p><strong>Conseil :</strong> Afin d'éviter le remplacement de pièces inutile, notre réseau de stations techniques agréées se tient à votre disposition pour tout diagnostic précis, pensez-y !</p>
         </div>
-        
+
         <div class="form-header">
-            <h2>Demande d'Assistance Technique MIDEA 2025</h2>
+            <h2>Demande de Pièces Détachées MIDEA 2025</h2>
             <div class="instructions">
-                <strong>Conditions :</strong> Intervention payante selon conditions générales de vente. 
-                Bon de commande obligatoire. Délai : sous 8 jours ouvrés.
-                <p style="margin-top: 1rem;"><strong>Pour toute question :</strong> hotline@mideahvac.fr</p>
+                <strong>Pour toute information complémentaire :</strong> pieces@mideahvac.fr
             </div>
         </div>
 
-        <form id="assistanceForm">
+        <form id="piecesForm">
+            <!-- Type de demande -->
             <div class="form-section">
-                <h3>Information client MIDEA</h3>
+                <h3>Type de demande</h3>
                 <div class="form-row">
-                    <div class="form-group"><label class="required">Société</label><input type="text" name="societeDistributeur" required></div>
-                    <div class="form-group"><label>N° client Frigicoll</label><input type="text" name="numClientFrigicoll"></div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group"><label class="required">Nom du contact</label><input type="text" name="nomContactDistributeur" required></div>
-                    <div class="form-group"><label class="required">Téléphone</label><input type="tel" name="telephoneDistributeur" required></div>
-                </div>
-                <div class="form-group"><label class="required">Email</label><input type="email" name="emailDistributeur" required></div>
-            </div>
-
-            <div class="form-section">
-                <h3>Information Installateur</h3>
-                <div class="form-row">
-                    <div class="form-group"><label class="required">Société</label><input type="text" name="societeInstallateur" required></div>
-                    <div class="form-group"><label class="required">N° Attestation de capacité</label><input type="text" name="numADC" required></div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group"><label class="required">Nom du contact</label><input type="text" name="nomContactInstallateur" required></div>
-                    <div class="form-group"><label class="required">Téléphone</label><input type="tel" name="telephoneInstallateur" required></div>
-                </div>
-                <div class="form-group"><label class="required">Email</label><input type="email" name="emailInstallateur" required></div>
-            </div>
-
-            <div class="form-section">
-                <h3>Information du site</h3>
-                <div class="form-row">
-                    <div class="form-group"><label class="required">Nom du site</label><input type="text" name="nomSite" required></div>
-                    <div class="form-group"><label class="required">Date souhaitée intervention</label><input type="date" name="dateSouhaitee" required></div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group"><label class="required">Nom du contact</label><input type="text" name="nomContactSite" required></div>
-                    <div class="form-group"><label class="required">Téléphone</label><input type="tel" name="telephoneSite" required></div>
-                </div>
-                <div class="form-group"><label class="required">Adresse complète du site</label><textarea name="adresseSite" rows="3" required></textarea></div>
-            </div>
-
-            <div class="form-section">
-                <h3>Information installation</h3>
-                <div class="form-group">
-                    <label class="required">Type d'installation</label>
-                    <select name="typeInstallation" required>
-                        <option value="">-- Sélectionner --</option>
-                        <option value="VRF">VRF</option>
-                        <option value="PAC">PAC</option>
-                        <option value="Chiller">Chiller</option>
-                        <option value="CTA">CTA</option>
-                        <option value="Mono/Multi">Mono/Multi</option>
-                        <option value="Autre">Autre</option>
-                    </select>
-                </div>
-                <div class="form-row">
-                    <div class="form-group"><label class="required">Référence produit</label><input type="text" name="referenceProduit" required></div>
-                    <div class="form-group"><label class="required">Numéro de série (SN)</label><input type="text" name="numeroSerie" required></div>
-                </div>
-                <div class="form-group"><label class="required">N° Ticket Hotline</label><input type="text" name="numTicketHotline" required></div>
-                <div class="form-row">
-                    <div class="form-group"><label class="required">Date d'installation</label><input type="date" name="dateInstallation" required></div>
-                    <div class="form-group"><label class="required">Date de panne</label><input type="date" name="datePanne" required></div>
-                </div>
-                <div class="form-group"><label>Code erreur</label><input type="text" name="codeErreur"></div>
-                <div class="form-group"><label class="required">Descriptif problème, tests effectués, pièces remplacées</label><textarea name="descriptifProbleme" rows="6" required></textarea></div>
-            </div>
-
-            <div class="form-section">
-                <h3>Validation</h3>
-                <div class="form-row">
-                    <div class="form-group"><label class="required">Nom du demandeur</label><input type="text" name="nomDemandeur" required></div>
-                    <div class="form-group"><label class="required">Date de la demande</label><input type="date" name="dateDemande" required></div>
-                </div>
-                <div class="form-group">
-                    <label class="required">Bon de commande fourni</label>
-                    <div class="radio-group">
-                        <div class="radio-item"><input type="radio" id="bcOui" name="bonCommandeFourni" value="Oui" required><label for="bcOui">Oui</label></div>
-                        <div class="radio-item"><input type="radio" id="bcNon" name="bonCommandeFourni" value="Non"><label for="bcNon">Non</label></div>
+                    <div class="form-group">
+                        <label class="required">Type de demande</label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="sousGarantie" name="typeDemande" value="Sous garantie" required>
+                                <label for="sousGarantie">Sous garantie</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="horsGarantie" name="typeDemande" value="Hors garantie">
+                                <label for="horsGarantie">Hors garantie</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="required">Bon de livraison</label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="chiffre" name="bonLivraison" value="Chiffré" required>
+                                <label for="chiffre">Chiffré</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="nonChiffre" name="bonLivraison" value="Non chiffré">
+                                <label for="nonChiffre">Non chiffré</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Information Distributeur -->
+            <div class="form-section">
+                <h3>Information client MIDEA</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="required">Société</label>
+                        <input type="text" name="societeDistributeur" required>
+                    </div>
+                    <div class="form-group">
+                        <label>N° client Midea</label>
+                        <input type="text" name="numClientFrigicoll">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="required">Nom du contact</label>
+                        <input type="text" name="nomContactDistributeur" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="required">Téléphone</label>
+                        <input type="tel" name="telephoneDistributeur" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="required">Email</label>
+                    <input type="email" name="emailDistributeur" required>
+                </div>
+                <div class="form-group">
+                    <label class="required">Adresse</label>
+                    <textarea name="adresseDistributeur" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Adresse de livraison (si différente)</label>
+                    <textarea name="adresseLivraisonDifferente"></textarea>
+                </div>
+            </div>
+
+            <!-- Information Installateur -->
+            <div class="form-section">
+                <h3>Information Installateur</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="required">Nom de l'installateur</label>
+                        <input type="text" name="nomInstallateur" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Référence du dossier</label>
+                        <input type="text" name="referenceDossier">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Information Installation -->
+            <div class="form-section">
+                <h3>Information Installation</h3>
+                <div class="form-group">
+                    <label class="required">Type d'installation</label>
+                    <select name="typeInstallation" required>
+                        <option value="">-- Sélectionner --</option>
+                        <option value="Mono">Mono</option>
+                        <option value="Multi">Multi</option>
+                        <option value="VRF">VRF</option>
+                        <option value="PAC">PAC</option>
+                        <option value="Commandes">Commandes</option>
+                        <option value="Autres">Autres</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="required">Référence produit</label>
+                        <input type="text" name="referenceProduit" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="required">Numéro de série (SN)</label>
+                        <input type="text" name="numeroSerie" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="required">N° Ticket Hotline</label>
+                    <input type="text" name="numTicketHotline" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="required">Date installation</label>
+                        <input type="date" name="dateInstallation" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="required">Date panne</label>
+                        <input type="date" name="datePanne" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Code erreur</label>
+                        <input type="text" name="codeErreur">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="required">Descriptif de la panne et tests effectués</label>
+                    <textarea name="descriptifPanne" rows="4" required></textarea>
+                </div>
+            </div>
+
+            <!-- Pièces demandées -->
+            <div class="form-section">
+                <h3>Pièces demandées</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="required">Réf ou description pièce 1</label>
+                        <input type="text" name="refPiece1" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Réf ou description pièce 2</label>
+                        <input type="text" name="refPiece2">
+                    </div>
+                    <div class="form-group">
+                        <label>Réf ou description pièce 3</label>
+                        <input type="text" name="refPiece3">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Validation -->
+            <div class="form-section">
+                <h3>Validation</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="required">Nom du demandeur</label>
+                        <input type="text" name="nomDemandeur" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="required">Date de la demande</label>
+                        <input type="date" name="dateDemande" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Buttons -->
 
             <!-- ===== PIÈCES JOINTES ===== -->
             <div class="file-upload-section">
@@ -295,16 +509,33 @@
             </div>
 
             <div class="button-group">
-                <button type="submit" class="btn-primary">Envoyer la demande</button>
+                <button type="submit" class="btn-primary" id="submitBtn">Envoyer la demande</button>
+            </div>
+
+            <div class="loading" id="loadingMessage">
+                <p>⏳ Envoi en cours...</p>
             </div>
         </form>
 
         <div id="successMessage" class="success-message">
             <h3>✓ Demande envoyée avec succès !</h3>
-            <p>Votre demande d'assistance a été transmise à hotline@mideahvac.fr</p>
+            <p>Votre demande de pièces détachées a été transmise à pieces@mideahvac.fr</p>
+            <p>Numéro de référence : <strong id="refNumber"></strong></p>
+            <p>Vous recevrez une confirmation par email sous peu.</p>
+        </div>
+
+        <div id="errorMessage" class="error-message">
+            <h3>❌ Erreur lors de l'envoi</h3>
+            <p id="errorText">Une erreur est survenue. Veuillez réessayer ou contacter pieces@mideahvac.fr</p>
+        </div>
+
+        <div class="contact-info">
+            <p><strong>Hotline :</strong> 09 80 80 15 14 (choix 5)</p>
+            <p><strong>Email :</strong> pieces@mideahvac.fr</p>
         </div>
     </div>
 
+    <!-- EmailJS SDK -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
         /* ===== GESTION PIÈCES JOINTES ===== */
@@ -413,35 +644,104 @@
         }
 
 
-        const EMAILJS_SERVICE_ID = 'service_f3sml7h';
-        const EMAILJS_TEMPLATE_ID = 'template_hkh3nds';
-        const EMAILJS_PUBLIC_KEY = '98TIlq6iGPq96S4ff';
-        emailjs.init(EMAILJS_PUBLIC_KEY);
-        
-        document.getElementById('assistanceForm').addEventListener('submit', async function(e) {
+        // Initialisation EmailJS
+        (function() {
+            emailjs.init("Wbr5bt7qc2W_mzelX");
+        })();
+
+        // Logique automatique: Garantie → Bon de livraison
+        const sousGarantieRadio = document.getElementById('sousGarantie');
+        const horsGarantieRadio = document.getElementById('horsGarantie');
+        const nonChiffreRadio = document.getElementById('nonChiffre');
+        const chiffreRadio = document.getElementById('chiffre');
+
+        sousGarantieRadio.addEventListener('change', function() {
+            if (this.checked) {
+                nonChiffreRadio.checked = true;
+            }
+        });
+
+        horsGarantieRadio.addEventListener('change', function() {
+            if (this.checked) {
+                chiffreRadio.checked = true;
+            }
+        });
+
+        // Générer un numéro de référence unique
+        function generateReference() {
+            const date = new Date();
+            const timestamp = date.getTime().toString().slice(-6);
+            return `PIECE-${timestamp}`;
+        }
+
+        // Soumission du formulaire avec EmailJS
+        document.getElementById('piecesForm').addEventListener('submit', async function(e) {
             e.preventDefault();
-            const submitBtn = this.querySelector('button[type="submit"]');
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const loadingMsg = document.getElementById('loadingMessage');
+            const successMsg = document.getElementById('successMessage');
+            const errorMsg = document.getElementById('errorMessage');
+            
+            // Désactiver le bouton et afficher le loading
             submitBtn.disabled = true;
             submitBtn.textContent = 'Envoi en cours...';
+            loadingMsg.classList.add('show');
+            errorMsg.classList.remove('show');
             
+            // Récupérer toutes les données du formulaire
             const formData = new FormData(this);
-            const data = {};
-            formData.forEach((value, key) => { data[key] = value; });
+            const templateParams = {};
+            
+            formData.forEach((value, key) => {
+                templateParams[key] = value || 'Non renseigné';
+            });
+            
+            // Ajouter le numéro de référence
+            const refNumber = generateReference();
+            templateParams.refNumber = refNumber;
+            
+            // Préparer le sujet pour le routage Power Automate
+            templateParams.subject = '[DEMANDE_PIECE] Nouvelle demande - ' + templateParams.nomDemandeur;
+            
             // Ajout pièces jointes
             const pjData = await getPiecesJointesData();
-            Object.assign(data, pjData);
-                        data.form_type = 'ASSISTANCE';
-            data.date_soumission = new Date().toLocaleString('fr-FR');
+            Object.assign(templateParams, pjData);
+
+                        console.log('Envoi des données:', templateParams);
             
-            try {
-                await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, data);
-                this.style.display = 'none';
-                document.getElementById('successMessage').classList.add('show');
-            } catch (error) {
-                alert('Erreur lors de l\'envoi: ' + error.text);
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Envoyer la demande';
-            }
+            // Envoyer via EmailJS
+            emailjs.send('service_0f6mbml', 'template_hhkcf3d', templateParams)
+                .then(function(response) {
+                    console.log('✓ Email envoyé avec succès!', response);
+                    
+                    // Masquer le formulaire et le loading
+                    document.getElementById('piecesForm').style.display = 'none';
+                    loadingMsg.classList.remove('show');
+                    
+                    // Afficher le message de succès avec le numéro de référence
+                    document.getElementById('refNumber').textContent = refNumber;
+                    successMsg.classList.add('show');
+                    
+                }, function(error) {
+                    console.error('❌ Erreur lors de l\'envoi:', error);
+                    
+                    // Réactiver le bouton
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Envoyer la demande';
+                    loadingMsg.classList.remove('show');
+                    
+                    // Afficher le message d'erreur
+                    document.getElementById('errorText').textContent = 
+                        'Erreur technique: ' + (error.text || 'Veuillez réessayer');
+                    errorMsg.classList.add('show');
+                });
+        });
+
+        // Définir la date du jour par défaut
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date().toISOString().split('T')[0];
+            document.querySelector('input[name="dateDemande"]').value = today;
         });
     </script>
 </body>
