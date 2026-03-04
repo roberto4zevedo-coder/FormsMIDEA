@@ -96,7 +96,7 @@
         <div class="warning-box">
             <h4>⚠️ Informations importantes</h4>
             <p>Toute demande d'assistance technique sous garantie ou hors garantie <span class="highlight">doit faire l'objet d'un bon de commande</span>. Le résultat de l'intervention ouvrira ou non droit à la prise en charge de celle-ci par MIDEA HVAC France pour les produits sous garantie.</p>
-            <p>Toute intervention annulée ou impossible moins de 24h avant l'intervention, une pénalité de 250€ HT pourra être réclamée en compensation (exemples : installateur absent, installation non finalisée, défaut d'alimentation électrique…).</p>
+            <p>Pour toute intervention annulée ou impossible moins de 24h avant l'intervention, 250€ HT pourra être réclamée en compensation (exemples : installateur absent, installation non finalisée, défaut d'alimentation électrique…).</p>
             
             <p style="margin-bottom: 0.5rem; font-weight: 600;">Barème prestation :</p>
             <table class="tarif-table">
@@ -126,9 +126,7 @@
         <div class="form-header">
             <h2>Demande d'Assistance Technique MIDEA 2025</h2>
             <div class="instructions">
-                <strong>Conditions :</strong> Intervention payante selon conditions générales de vente. 
-                Bon de commande obligatoire. Délai : sous 8 jours ouvrés.
-                <p style="margin-top: 1rem;"><strong>Pour toute question :</strong> hotline@mideahvac.fr</p>
+                <p><strong>Pour toute question :</strong> hotline@mideahvac.fr</p>
             </div>
         </div>
 
@@ -137,7 +135,7 @@
                 <h3>Information client MIDEA</h3>
                 <div class="form-row">
                     <div class="form-group"><label class="required">Société</label><input type="text" name="societeDistributeur" required></div>
-                    <div class="form-group"><label>N° client Frigicoll</label><input type="text" name="numClientFrigicoll"></div>
+                    <div class="form-group"><label>N° client Midea</label><input type="text" name="numClientFrigicoll"></div>
                 </div>
                 <div class="form-row">
                     <div class="form-group"><label class="required">Nom du contact</label><input type="text" name="nomContactDistributeur" required></div>
@@ -199,18 +197,49 @@
                 <div class="form-group"><label class="required">Descriptif problème, tests effectués, pièces remplacées</label><textarea name="descriptifProbleme" rows="6" required></textarea></div>
             </div>
 
+
+
+            <!-- Section Bon de commande -->
             <div class="form-section">
-                <h3>Validation</h3>
+                <h3>📄 Bon de commande</h3>
+                <p style="font-size:0.9rem; color:#555; margin-bottom:1rem;">Joindre le bon de commande <strong>ou</strong> saisir le numéro de commande. Images auto-compressées si &gt; 400 Ko. PDF accepté si ≤ 400 Ko.</p>
                 <div class="form-row">
-                    <div class="form-group"><label class="required">Nom du demandeur</label><input type="text" name="nomDemandeur" required></div>
-                    <div class="form-group"><label class="required">Date de la demande</label><input type="date" name="dateDemande" required></div>
-                </div>
-                <div class="form-group">
-                    <label class="required">Bon de commande fourni</label>
-                    <div class="radio-group">
-                        <div class="radio-item"><input type="radio" id="bcOui" name="bonCommandeFourni" value="Oui" required><label for="bcOui">Oui</label></div>
-                        <div class="radio-item"><input type="radio" id="bcNon" name="bonCommandeFourni" value="Non"><label for="bcNon">Non</label></div>
+                    <div class="form-group">
+                        <label>Pièce jointe (bon de commande)</label>
+                        <input type="file" id="bcFile" accept="image/*,.pdf" style="width:100%; padding:0.5rem; border:2px solid #d0d0d0; border-radius:4px;">
+                        <div id="bcPreview" style="margin-top:0.5rem; font-size:0.85rem; color:#333;"></div>
                     </div>
+                    <div class="form-group">
+                        <label>N° de commande (si pas de PJ)</label>
+                        <input type="text" name="numCommande" placeholder="Ex: BC-2025-0042">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section Pièces jointes -->
+            <div class="form-section">
+                <h3>📎 Pièces jointes</h3>
+                <p style="font-size:0.9rem; color:#555; margin-bottom:1rem;">Vous pouvez joindre jusqu'à 2 photos ou documents liés à la panne. Images auto-compressées si &gt; 400 Ko. PDF accepté si ≤ 400 Ko.</p>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Photo / document 1</label>
+                        <input type="file" id="pj1File" accept="image/*,.pdf" style="width:100%; padding:0.5rem; border:2px solid #d0d0d0; border-radius:4px;">
+                        <div id="pj1Preview" style="margin-top:0.5rem; font-size:0.85rem; color:#333;"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>Photo / document 2</label>
+                        <input type="file" id="pj2File" accept="image/*,.pdf" style="width:100%; padding:0.5rem; border:2px solid #d0d0d0; border-radius:4px;">
+                        <div id="pj2Preview" style="margin-top:0.5rem; font-size:0.85rem; color:#333;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section Commentaires -->
+            <div class="form-section">
+                <h3>💬 Commentaires</h3>
+                <div class="form-group">
+                    <label>Informations complémentaires</label>
+                    <textarea name="commentaires" rows="4" placeholder="Précisez ici toute information utile pour l'intervention..."></textarea>
                 </div>
             </div>
 
