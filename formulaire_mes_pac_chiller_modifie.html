@@ -70,14 +70,15 @@
         <div class="warning-box">
             <h4>⚠️ Informations importantes</h4>
             <p><strong>Accès et sécurité :</strong> Le total accès et la mise en sécurité du lieu de l'intervention sont obligatoires (échafaudage, balisage, barrière de sécurité, accès au matériel…).</p>
-            <p><strong>Pénalités :</strong> Toute intervention annulée moins de 24h avant l'intervention ou impossible, une pénalité de 250€ HT sera facturée en compensation (exemples : installateur absent, installation non finalisée, défaut d'alimentation électrique…).</p>
+            <p><strong>Pénalités :</strong> Pour toute intervention annulée moins de 24h avant l'intervention ou impossible, 250€ HT sera facturée en compensation (exemples : installateur absent, installation non finalisée, défaut d'alimentation électrique…).</p>
             <p><strong>Délais :</strong> Toute demande incomplète ne sera pas traitée et repoussera d'autant le délai de 10 jours.</p>
+            <p><strong>Documents requis :</strong> Bon de commande</p>
         </div>
 
         <div class="form-header">
             <h2>Mise En Service PAC/Chiller MIDEA 2025</h2>
             <div class="instructions">
-                <strong>OBLIGATOIRE :</strong> Installation terminée + Circuit hydraulique purgé<br>
+                <strong>OBLIGATOIRE :</strong> Installation terminée + Réseau secondaire purgé<br>
                 <strong>Pour toute question :</strong> hotline@mideahvac.fr
             </div>
         </div>
@@ -254,11 +255,44 @@
 
             <div class="form-section">
                 <h3>Validation</h3>
-                <div class="form-row">
-                    <div class="form-group"><label class="required">Nom installateur</label><input type="text" name="nomInstallateur" required></div>
-                    <div class="form-group"><label class="required">Date de la demande</label><input type="date" name="dateDemande" required></div>
+                <div class="form-group"><label class="required">Date souhaitée de MES</label><input type="date" name="dateSouhaiteeMES" required></div>
+            </div>
+
+            <!-- Section Schéma hydraulique (PJ obligatoire) -->
+            <div class="form-section">
+                <h3>📎 Schéma hydraulique</h3>
+                <p style="font-size:0.9rem; color:#555; margin-bottom:1rem;">Joindre le schéma hydraulique de l'installation <strong>(obligatoire)</strong>. Images auto-compressées si &gt; 400 Ko. PDF accepté si ≤ 400 Ko.</p>
+                <div class="form-group">
+                    <label class="required">Schéma hydraulique (image ou PDF)</label>
+                    <input type="file" id="schemaFile" accept="image/*,.pdf" style="width:100%; padding:0.5rem; border:2px solid #d0d0d0; border-radius:4px;">
+                    <div id="schemaPreview" style="margin-top:0.5rem; font-size:0.85rem; color:#333;"></div>
                 </div>
-                <div class="form-group"><label class="required">Date souhaitée MES</label><input type="date" name="dateSouhaiteeMES" required></div>
+            </div>
+
+            <!-- Section Bon de commande -->
+            <div class="form-section">
+                <h3>📄 Bon de commande</h3>
+                <p style="font-size:0.9rem; color:#555; margin-bottom:1rem;">Joindre le bon de commande <strong>ou</strong> saisir le numéro de commande. Images auto-compressées si &gt; 400 Ko. PDF accepté si ≤ 400 Ko.</p>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Pièce jointe (bon de commande)</label>
+                        <input type="file" id="bcFile" accept="image/*,.pdf" style="width:100%; padding:0.5rem; border:2px solid #d0d0d0; border-radius:4px;">
+                        <div id="bcPreview" style="margin-top:0.5rem; font-size:0.85rem; color:#333;"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>N° de commande (si pas de pièce jointe)</label>
+                        <input type="text" name="numCommande" placeholder="Ex : BC-2025-0042">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section Commentaires -->
+            <div class="form-section">
+                <h3>💬 Commentaires</h3>
+                <div class="form-group">
+                    <label>Informations complémentaires</label>
+                    <textarea name="commentaires" rows="4" placeholder="Précisez ici toute information utile pour la mise en service..."></textarea>
+                </div>
             </div>
 
             <div class="button-group">
