@@ -462,20 +462,7 @@
                 </div>
             </div>
 
-            <!-- Validation -->
-            <div class="form-section">
-                <h3>Validation</h3>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label class="required">Nom du demandeur</label>
-                        <input type="text" name="nomDemandeur" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="required">Date de la demande</label>
-                        <input type="date" name="dateDemande" required>
-                    </div>
-                </div>
-            </div>
+
 
             <!-- Buttons -->
 
@@ -508,6 +495,15 @@
                 </div>
             </div>
 
+            <!-- Section Commentaires -->
+            <div class="form-section">
+                <h3>💬 Commentaires</h3>
+                <div class="form-group">
+                    <label>Informations complémentaires</label>
+                    <textarea name="commentaires" rows="4" placeholder="Précisez ici toute information utile concernant votre demande de pièces..."></textarea>
+                </div>
+            </div>
+
             <div class="button-group">
                 <button type="submit" class="btn-primary" id="submitBtn">Envoyer la demande</button>
             </div>
@@ -530,7 +526,7 @@
         </div>
 
         <div class="contact-info">
-            <p><strong>Hotline :</strong> 09 80 80 15 14 (choix 5)</p>
+            <p><strong>Hotline :</strong> 08.51.08.91.01 (choix 5)</p>
             <p><strong>Email :</strong> pieces@mideahvac.fr</p>
         </div>
     </div>
@@ -702,7 +698,7 @@
             templateParams.refNumber = refNumber;
             
             // Préparer le sujet pour le routage Power Automate
-            templateParams.subject = '[DEMANDE_PIECE] Nouvelle demande - ' + templateParams.nomDemandeur;
+            templateParams.subject = '[DEMANDE_PIECE] Nouvelle demande - ' + (templateParams.societeDistributeur || 'Inconnu');
             
             // Ajout pièces jointes
             const pjData = await getPiecesJointesData();
@@ -741,7 +737,6 @@
         // Définir la date du jour par défaut
         document.addEventListener('DOMContentLoaded', function() {
             const today = new Date().toISOString().split('T')[0];
-            document.querySelector('input[name="dateDemande"]').value = today;
         });
     </script>
 </body>
