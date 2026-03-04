@@ -70,7 +70,7 @@
         <!-- Encart de prévention -->
         <div class="warning-box">
             <h4>⚠️ Informations importantes</h4>
-            <p><strong>Justification obligatoire :</strong> Toute demande de remplacement de produit doit être justifiée et la demande concrètement renseignée avec joint le rapport de mise en service, rapports d'intervention et photos ou vidéo du problème.</p>
+            <p><strong>Justification obligatoire :</strong> Toute demande de remplacement de produit doit être justifiée et la demande concrètement renseignée avec joint le rapport de mise en service, rapports d'intervention et photos ou vidéo du problème (ex : fuite).</p>
             <p><strong>Exclusions de garantie :</strong> La demande de remplacement ne pourra en aucun cas être obtenue suite à des défaillances causées par une mauvaise installation, une utilisation anormale, une tension électrique inadaptée, une maintenance défectueuse ou erreur de diagnostic de panne.</p>
             <p><strong>Garantie :</strong> La garantie MIDEA est une garantie de pièces et en aucun cas une main d'œuvre (MO), le remplacement du produit est à la charge de l'installateur.</p>
             <p><strong>Expertise :</strong> Une expertise par une station technique agréée pourra être demandée via le formulaire de demande d'assistance.</p>
@@ -142,11 +142,21 @@
                 <div class="form-group"><label class="required">Descriptif panne, tests effectués, pièces remplacées</label><textarea name="descriptifPanne" rows="6" required></textarea></div>
             </div>
 
+            <!-- Section Photos -->
             <div class="form-section">
-                <h3>Validation</h3>
+                <h3>📷 Photos</h3>
+                <p style="font-size:0.9rem; color:#555; margin-bottom:1rem;">Vous pouvez joindre jusqu'à 2 photos du produit ou du problème constaté. Images auto-compressées si &gt; 400 Ko.</p>
                 <div class="form-row">
-                    <div class="form-group"><label class="required">Nom du demandeur</label><input type="text" name="nomDemandeur" required></div>
-                    <div class="form-group"><label class="required">Date de la demande</label><input type="date" name="dateDemande" required></div>
+                    <div class="form-group">
+                        <label>Photo 1</label>
+                        <input type="file" id="pj1File" accept="image/*" style="width:100%; padding:0.5rem; border:2px dashed #d0d0d0; border-radius:4px; cursor:pointer;">
+                        <div id="pj1Preview" style="margin-top:0.5rem; font-size:0.85rem; color:#333;"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>Photo 2</label>
+                        <input type="file" id="pj2File" accept="image/*" style="width:100%; padding:0.5rem; border:2px dashed #d0d0d0; border-radius:4px; cursor:pointer;">
+                        <div id="pj2Preview" style="margin-top:0.5rem; font-size:0.85rem; color:#333;"></div>
+                    </div>
                 </div>
             </div>
 
@@ -172,19 +182,66 @@
         const EMAILJS_TEMPLATE_ID = 'template_k4otoru';
         const EMAILJS_PUBLIC_KEY = 'Wbr5bt7qc2W_mzelX';
         emailjs.init(EMAILJS_PUBLIC_KEY);
-        
+
+        async function lireFichierPJ(inputEl) {
+            return new Promise((resolve) => {
+                const file = inputEl.files[0];
+                if (!file) return resolve({ nom: '', b64: '' });
+                const reader = new FileReader();
+                reader.onload = ev => {
+                    const img = new Image();
+                    img.onload = () => {
+                        let w = img.width, h = img.height;
+                        const max = 1280;
+                        if (w > max || h > max) {
+                            if (w > h) { h = Math.round(h * max / w); w = max; }
+                            else { w = Math.round(w * max / h); h = max; }
+                        }
+                        const canvas = document.createElement('canvas');
+                        canvas.width = w; canvas.height = h;
+                        canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+                        let q = 0.75;
+                        let b64 = canvas.toDataURL('image/jpeg', q).split(',')[1];
+                        while (b64.length * 0.75 > 400 * 1024 && q > 0.3) {
+                            q -= 0.05;
+                            b64 = canvas.toDataURL('image/jpeg', q).split(',')[1];
+                        }
+                        resolve({ nom: file.name, b64 });
+                    };
+                    img.src = ev.target.result;
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        document.getElementById('pj1File').addEventListener('change', function() {
+            document.getElementById('pj1Preview').textContent = this.files[0] ? '✅ ' + this.files[0].name : '';
+        });
+        document.getElementById('pj2File').addEventListener('change', function() {
+            document.getElementById('pj2Preview').textContent = this.files[0] ? '✅ ' + this.files[0].name : '';
+        });
+
         document.getElementById('remplacementForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             const submitBtn = this.querySelector('button[type="submit"]');
             submitBtn.disabled = true;
             submitBtn.textContent = 'Envoi en cours...';
-            
+
+            const [pj1, pj2] = await Promise.all([
+                lireFichierPJ(document.getElementById('pj1File')),
+                lireFichierPJ(document.getElementById('pj2File'))
+            ]);
+
             const formData = new FormData(this);
             const data = {};
             formData.forEach((value, key) => { data[key] = value; });
             data.form_type = 'REMPLACEMENT';
             data.date_soumission = new Date().toLocaleString('fr-FR');
-            
+            data.pj1_nom = pj1.nom;
+            data.pj1_b64 = pj1.b64;
+            data.pj2_nom = pj2.nom;
+            data.pj2_b64 = pj2.b64;
+
             try {
                 await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, data);
                 this.style.display = 'none';
